@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade Vanguard — Código Penal Unificado 2026</title>
+  
+  <!-- Fontes Oficiais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vanguard: {
+              darkest: '#030712',
+              dark: '#081325',
+              card: '#0f223f',
+              border: '#1b3558',
+              primary: '#2563eb',
+              accent: '#38bdf8',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            title: ['Orbitron', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb { background: #1b3558; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+    .bg-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12) 0%, rgba(3, 7, 18, 0) 70%);
+    }
+  </style>
+</head>
+
+<body class="bg-vanguard-darkest text-slate-200 font-sans min-h-screen bg-glow antialiased selection:bg-vanguard-accent selection:text-vanguard-darkest">
+
+<!-- NAVBAR FIXA PADRONIZADA -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-vanguard-darkest/90 border-b border-vanguard-border/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-vanguard-primary to-vanguard-accent flex items-center justify-center shadow-lg shadow-vanguard-primary/20">
+            <i data-lucide="scale" class="w-5 h-5 text-white"></i>
+          </div>
+          <div>
+            <span class="font-title font-bold text-lg text-white tracking-wider">CÓDIGO PENAL</span>
+            <span class="text-[11px] text-vanguard-accent block -mt-1 font-medium tracking-widest uppercase">MDT Oficial • Cidade Vanguard 2026</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-1.5 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="regras.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-vanguard-accent bg-vanguard-accent/10 border border-vanguard-accent/40 hover:bg-vanguard-accent hover:text-vanguard-darkest transition-all px-3 py-1.5 rounded-lg">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>Código de Leis</span>
+        </a>
+
+        <a href="https://discord.gg/cidade-vanguard" target="_blank" class="flex items-center gap-2 text-xs font-semibold bg-vanguard-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all shadow-md shadow-vanguard-primary/20">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>Discord</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / BANNER -->
+  <section class="relative pt-10 pb-6 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-vanguard-accent/30 bg-vanguard-card/60 text-vanguard-accent text-xs font-medium mb-3">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      Sistema Judiciário Municipal • 139 Artigos Sancionados
+    </div>
+    
+    <h1 class="text-3xl sm:text-5xl font-title font-black text-white tracking-tight mb-3">
+      CÓDIGO PENAL <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-vanguard-accent to-vanguard-primary">CIDADE VANGUARD</span>
+    </h1>
+    
+    <p class="text-vanguard-muted text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mb-6">
+      Tabela oficial de sanções penais, multas, fianças e tempos de reclusão aplicáveis pelas forças policiais e pelo Poder Judiciário.
+    </p>
+
+    <!-- BARRA DE BUSCA EM TEMPO REAL -->
+    <div class="relative max-w-xl mx-auto mb-6">
+      <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-vanguard-muted"></i>
+      <input 
+        type="text" 
+        id="searchPenal" 
+        placeholder="Pesquise por artigo, crime ou descrição (ex: 1.1, homicídio, CNH, tráfico)..." 
+        class="w-full pl-12 pr-4 py-3.5 bg-vanguard-dark/90 border border-vanguard-border focus:border-vanguard-accent focus:ring-2 focus:ring-vanguard-accent/20 rounded-xl text-sm text-white placeholder-vanguard-muted outline-none transition-all shadow-xl shadow-black/40"
+      >
+    </div>
+
+    <!-- FILTRO DE CATEGORIAS (PILLS) -->
+    <div class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto" id="categoryFilters">
+      <button class="filter-btn active text-xs px-3 py-1.5 rounded-lg border border-vanguard-accent bg-vanguard-accent/10 text-vanguard-accent font-semibold transition-all" data-category="all">Todos os Artigos</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="1">1. Vida</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="2">2. Integridade Física</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="3">3. Liberdade</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="4">4. Honra</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="5">5. Patrimônio</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="6">6. Adm. Pública</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="7">7. Trânsito</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="8">8. Armas</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="9">9. Drogas</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="10">10. Ordem Pública</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="11">11. Org. Criminosa</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="12">12. Fraudes</button>
+      <button class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-category="13">13. Administrativo</button>
+    </div>
+  </section>
+
+  <!-- TABELA OFICIAL DE ARTIGOS -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="bg-vanguard-dark/90 border border-vanguard-border rounded-2xl shadow-2xl overflow-hidden">
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+          <thead class="bg-vanguard-card/90 text-[11px] font-title font-bold text-vanguard-accent uppercase tracking-wider border-b border-vanguard-border">
+            <tr>
+              <th class="p-4 w-28">Artigo</th>
+              <th class="p-4">Infração & Descrição</th>
+              <th class="p-4 w-32 text-right">Multa</th>
+              <th class="p-4 w-32 text-right">Fiança</th>
+              <th class="p-4 w-28 text-right">Prisão</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-vanguard-border/40 font-normal" id="penalTableBody">
+            <!-- Os artigos serão renderizados dinamicamente pelo JavaScript abaixo -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- AVISO DE NENHUM RESULTADO -->
+      <div id="noResults" class="hidden p-8 text-center text-vanguard-muted text-sm">
+        Nenhum artigo penal correspondente encontrado.
+      </div>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="mt-16 border-t border-vanguard-border/50 bg-vanguard-darkest/95 py-8 text-center text-xs text-vanguard-muted">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-title font-bold text-white tracking-wider">CIDADE VANGUARD • PODER JUDICIÁRIO</p>
+      <p>Secretaria de Segurança Pública Municipal • Código Penal Unificado 2026</p>
+    </div>
+  </footer>
+
+  <!-- DADOS E SCRIPT DE PESQUISA / FILTRO -->
+<!-- DADOS REBALANCEADOS E SCRIPT DE PESQUISA -->
+  <script>
+    lucide.createIcons();
+
+    // BANCO DE DADOS REBALANCEADO PARA SERVIDORES SÉRIOS (SERVIÇOS PRISIONAIS EQUILIBRADOS)
+    const penalData = [
+      // 1. CRIMES CONTRA A VIDA
+      { cat: 1, art: "Art. 1.1", title: "Homicídio Doloso Simples", desc: "Matar alguém intencionalmente sem qualificadoras.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 1, art: "Art. 1.2", title: "Homicídio Doloso Qualificado", desc: "Matar alguém com uso de emboscada, motivo torpe, meio cruel ou recurso que impossibilite a defesa da vítima.", fine: 100000, bail: 0, arrest: 100 },
+      { cat: 1, art: "Art. 1.3", title: "Homicídio Culposo", desc: "Causar a morte de alguém por imprudência, negligência ou imperícia, sem intenção.", fine: 25000, bail: 15000, arrest: 35 },
+      { cat: 1, art: "Art. 1.4", title: "Tentativa de Homicídio Doloso", desc: "Iniciar a execução de homicídio que não se consuma por circunstâncias alheias à vontade do agente.", fine: 60000, bail: 0, arrest: 60 },
+      { cat: 1, art: "Art. 1.5", title: "Tentativa de Homicídio Qualificado", desc: "Tentativa de homicídio com qualificadoras presentes (emboscada, meio cruel, motivo torpe).", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 1, art: "Art. 1.6", title: "Induzimento ao Suicídio", desc: "Induzir, instigar ou auxiliar alguém a se suicidar.", fine: 40000, bail: 0, arrest: 50 },
+      { cat: 1, art: "Art. 1.7", title: "Genocídio / Chacina", desc: "Matar três ou mais pessoas em um mesmo contexto fático.", fine: 100000, bail: 0, arrest: 120 },
+
+      // 2. CRIMES CONTRA A INTEGRIDADE FÍSICA
+      { cat: 2, art: "Art. 2.1", title: "Lesão Corporal Leve", desc: "Ofender a integridade corporal de outrem causando lesão de natureza leve.", fine: 8000, bail: 4000, arrest: 10 },
+      { cat: 2, art: "Art. 2.2", title: "Lesão Corporal Grave", desc: "Ofender a integridade corporal causando incapacidade por mais de 30 dias ou perigo de vida.", fine: 25000, bail: 10000, arrest: 25 },
+      { cat: 2, art: "Art. 2.3", title: "Lesão Corporal Gravíssima", desc: "Causar lesão que resulte em debilidade permanente ou perda de membro.", fine: 45000, bail: 0, arrest: 45 },
+      { cat: 2, art: "Art. 2.4", title: "Lesão Corporal Culposa", desc: "Causar lesão corporal em outrem por imprudência ou imperícia.", fine: 6000, bail: 3000, arrest: 8 },
+      { cat: 2, art: "Art. 2.5", title: "Lesão Corporal em Agente Público", desc: "Lesionar policial, paramédico ou servidor público em exercício de suas funções.", fine: 35000, bail: 10000, arrest: 35 },
+      { cat: 2, art: "Art. 2.6", title: "Tortura", desc: "Submeter alguém, com emprego de violência, a intenso sofrimento físico ou mental.", fine: 70000, bail: 0, arrest: 70 },
+      { cat: 2, art: "Art. 2.7", title: "Maus-Tratos", desc: "Expor a perigo a vida ou a saúde de pessoa sob sua autoridade ou guarda.", fine: 15000, bail: 5000, arrest: 20 },
+
+      // 3. CRIMES CONTRA A LIBERDADE INDIVIDUAL
+      { cat: 3, art: "Art. 3.1", title: "Sequestro e Cárcere Privado", desc: "Privar alguém de sua liberdade, mediante detenção forçada.", fine: 70000, bail: 0, arrest: 70 },
+      { cat: 3, art: "Art. 3.2", title: "Sequestro Qualificado", desc: "Sequestro cometido com violência ou contra menor de 18 anos.", fine: 100000, bail: 0, arrest: 90 },
+      { cat: 3, art: "Art. 3.3", title: "Ameaça", desc: "Ameaçar alguém de causar mal injusto e grave.", fine: 5000, bail: 2000, arrest: 10 },
+      { cat: 3, art: "Art. 3.4", title: "Constrangimento Ilegal", desc: "Constranger alguém mediante grave ameaça.", fine: 10000, bail: 5000, arrest: 15 },
+      { cat: 3, art: "Art. 3.5", title: "Tráfico de Pessoas", desc: "Recrutar ou transportar pessoas mediante coerção.", fine: 100000, bail: 0, arrest: 100 },
+      { cat: 3, art: "Art. 3.6", title: "Tomada de Reféns", desc: "Reter pessoa como refém para exigir condição ou vantagem.", fine: 80000, bail: 0, arrest: 70 },
+      { cat: 3, art: "Art. 3.7", title: "Stalking / Perseguição", desc: "Perseguir alguém reiteradamente, ameaçando sua integridade física ou psicológica.", fine: 12000, bail: 6000, arrest: 15 },
+
+      // 4. CRIMES CONTRA A HONRA
+      { cat: 4, art: "Art. 4.1", title: "Calúnia", desc: "Imputar falsamente a alguém fato definido como crime.", fine: 6000, bail: 3000, arrest: 10 },
+      { cat: 4, art: "Art. 4.2", title: "Difamação", desc: "Imputar a alguém fato ofensivo à sua reputação.", fine: 4000, bail: 2000, arrest: 8 },
+      { cat: 4, art: "Art. 4.3", title: "Injúria", desc: "Ofender a dignidade ou o decoro de alguém.", fine: 3000, bail: 1500, arrest: 8 },
+      { cat: 4, art: "Art. 4.4", title: "Injúria contra Agente Público", desc: "Ofender a dignidade de policial ou servidor público em razão da função.", fine: 10000, bail: 4000, arrest: 15 },
+      { cat: 4, art: "Art. 4.5", title: "Desacato", desc: "Desacatar funcionário público no exercício da função.", fine: 8000, bail: 3000, arrest: 15 },
+
+      // 5. CRIMES CONTRA O PATRIMÔNIO
+      { cat: 5, art: "Art. 5.1", title: "Furto Simples", desc: "Subtrair coisa alheia móvel sem emprego de violência.", fine: 12000, bail: 6000, arrest: 15 },
+      { cat: 5, art: "Art. 5.2", title: "Furto Qualificado", desc: "Furto com arrombamento de obstáculo ou concurso de pessoas.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 5, art: "Art. 5.3", title: "Roubo Simples", desc: "Subtrair coisa alheia mediante violência ou grave ameaça.", fine: 30000, bail: 10000, arrest: 35 },
+      { cat: 5, art: "Art. 5.4", title: "Roubo Qualificado", desc: "Roubo com emprego de arma de fogo ou concurso de agentes.", fine: 50000, bail: 0, arrest: 50 },
+      { cat: 5, art: "Art. 5.5", title: "Latrocínio", desc: "Roubo seguido de morte da vítima.", fine: 100000, bail: 0, arrest: 110 },
+      { cat: 5, art: "Art. 5.6", title: "Extorsão", desc: "Constranger alguém com intuito de obter vantagem econômica.", fine: 40000, bail: 0, arrest: 45 },
+      { cat: 5, art: "Art. 5.7", title: "Extorsão Mediante Sequestro", desc: "Sequestrar pessoa para obter resgate como condição de soltura.", fine: 100000, bail: 0, arrest: 95 },
+      { cat: 5, art: "Art. 5.8", title: "Receptação", desc: "Adquirir ou transportar produto sabendo ser ilícito.", fine: 15000, bail: 7000, arrest: 20 },
+      { cat: 5, art: "Art. 5.9", title: "Estelionato", desc: "Obter vantagem ilícita induzindo alguém em erro mediante fraude.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 5, art: "Art. 5.10", title: "Dano ao Patrimônio Privado", desc: "Destruir, inutilizar ou deteriorar coisa alheia.", fine: 8000, bail: 4000, arrest: 12 },
+      { cat: 5, art: "Art. 5.11", title: "Dano ao Patrimônio Público", desc: "Destruir bem público, incluindo viaturas e estruturas municipais.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 5, art: "Art. 5.12", title: "Roubo a Estabelecimento Comercial", desc: "Praticar roubo em comércio, loja, barbearia ou joalheria.", fine: 35000, bail: 0, arrest: 40 },
+      { cat: 5, art: "Art. 5.13", title: "Roubo a Banco ou Instituição Financeira", desc: "Praticar roubo em agência bancária ou caixa eletrônico.", fine: 80000, bail: 0, arrest: 75 },
+      { cat: 5, art: "Art. 5.14", title: "Roubo a Transporte de Valores", desc: "Assaltar carro-forte ou transporte de cargas monetárias.", fine: 90000, bail: 0, arrest: 80 },
+      { cat: 5, art: "Art. 5.15", title: "Furto de Veículo", desc: "Subtrair veículo automotor sem violência.", fine: 18000, bail: 8000, arrest: 20 },
+      { cat: 5, art: "Art. 5.16", title: "Roubo de Veículo", desc: "Subtrair veículo mediante violência ou grave ameaça.", fine: 30000, bail: 0, arrest: 35 },
+      { cat: 5, art: "Art. 5.17", title: "Pirataria de Carga", desc: "Interceptar e roubar carga de caminhões ou aeronaves de transporte.", fine: 60000, bail: 0, arrest: 55 },
+
+      // 6. CRIMES CONTRA A ADMINISTRAÇÃO PÚBLICA
+      { cat: 6, art: "Art. 6.1", title: "Resistência", desc: "Opor-se à execução de ato legal mediante violência ou ameaça.", fine: 15000, bail: 5000, arrest: 20 },
+      { cat: 6, art: "Art. 6.2", title: "Desobediência", desc: "Deixar de obedecer a ordem legal de funcionário público.", fine: 5000, bail: 2000, arrest: 10 },
+      { cat: 6, art: "Art. 6.3", title: "Fuga da Abordagem Policial", desc: "Fugir de abordagem ou blitz policial a pé ou em veículo.", fine: 10000, bail: 4000, arrest: 15 },
+      { cat: 6, art: "Art. 6.4", title: "Fuga após Prisão em Flagrante", desc: "Fugir após estar detido ou algemado por agente público.", fine: 20000, bail: 0, arrest: 30 },
+      { cat: 6, art: "Art. 6.5", title: "Favorecimento à Fuga", desc: "Auxiliar preso ou investigado a escapar da custódia policial.", fine: 25000, bail: 0, arrest: 35 },
+      { cat: 6, art: "Art. 6.6", title: "Obstrução à Justiça", desc: "Impedir ou dificultar investigação policial ou judicial.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 6, art: "Art. 6.7", title: "Corrupção Ativa", desc: "Oferecer vantagem indevida a funcionário público para ato de ofício.", fine: 40000, bail: 10000, arrest: 40 },
+      { cat: 6, art: "Art. 6.8", title: "Corrupção Passiva", desc: "Solicitar ou receber propina em razão da função pública.", fine: 60000, bail: 0, arrest: 60 },
+      { cat: 6, art: "Art. 6.9", title: "Prevaricação", desc: "Deixar de praticar ato de ofício por interesse ou sentimento pessoal.", fine: 30000, bail: 10000, arrest: 30 },
+      { cat: 6, art: "Art. 6.10", title: "Abuso de Autoridade", desc: "Exercer atribuições violando direitos individuais de forma dolosa.", fine: 40000, bail: 0, arrest: 40 },
+      { cat: 6, art: "Art. 6.11", title: "Atentado Contra Agente de Segurança", desc: "Atentar contra a integridade de policial ou agente de segurança pública.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 6, art: "Art. 6.12", title: "Invasão de Área Restrita", desc: "Acessar área militar, delegacia ou prédio restrito sem autorização.", fine: 15000, bail: 5000, arrest: 20 },
+      { cat: 6, art: "Art. 6.13", title: "Uso Indevido de Fardamento / Emblema", desc: "Usar fardamento ou colete oficial sem autorização da corporação.", fine: 12000, bail: 5000, arrest: 15 },
+      { cat: 6, art: "Art. 6.14", title: "Falsa Identidade", desc: "Atribuir-se identidade falsa perante agente público.", fine: 10000, bail: 4000, arrest: 15 },
+      { cat: 6, art: "Art. 6.15", title: "Porte Ilegal de Instrumento de Coerção", desc: "Portar algemas ou tonfas sem autorização legal.", fine: 8000, bail: 3000, arrest: 10 },
+
+      // 7. CRIMES E INFRAÇÕES DE TRÂNSITO
+      { cat: 7, art: "Art. 7.1", title: "Homicídio Culposo no Trânsito", desc: "Causar morte de outrem por imprudência na direção de veículo.", fine: 35000, bail: 15000, arrest: 40 },
+      { cat: 7, art: "Art. 7.2", title: "Lesão Culposa no Trânsito", desc: "Causar lesão em outrem por negligência na direção de veículo.", fine: 12000, bail: 5000, arrest: 15 },
+      { cat: 7, art: "Art. 7.3", title: "Embriaguez ao Volante", desc: "Conduzir veículo automotor sob efeito de álcool ou drogas.", fine: 15000, bail: 6000, arrest: 20 },
+      { cat: 7, art: "Art. 7.4", title: "Direção Perigosa", desc: "Conduzir veículo em alta velocidade pondo vidas em risco.", fine: 10000, bail: 4000, arrest: 15 },
+      { cat: 7, art: "Art. 7.5", title: "Fuga de Abordagem em Veículo", desc: "Fugir de perseguição policial com veículo automotor.", fine: 12000, bail: 5000, arrest: 15 },
+      { cat: 7, art: "Art. 7.6", title: "Fuga de Blitz", desc: "Desrespeitar bloqueio policial e não parar o veículo.", fine: 8000, bail: 3000, arrest: 10 },
+      { cat: 7, art: "Art. 7.7", title: "Conduzir Veículo sem CNH", desc: "Conduzir sem Carteira Nacional de Habilitação válida.", fine: 3000, bail: 1500, arrest: 5 },
+      { cat: 7, art: "Art. 7.8", title: "Conduzir Veículo Clonado ou Adulterado", desc: "Conduzir com placa falsa ou chassi adulterado.", fine: 10000, bail: 4000, arrest: 15 },
+      { cat: 7, art: "Art. 7.9", title: "Receptação de Veículo", desc: "Conduzir ou estar na posse de veículo com queixa de roubo ativa.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 7, art: "Art. 7.10", title: "Racha / Competição Ilegal", desc: "Disputa clandestina de velocidade em vias urbanas.", fine: 12000, bail: 5000, arrest: 15 },
+      { cat: 7, art: "Art. 7.11", title: "Atropelar Pedestre", desc: "Atingir pedestre de forma negligente em calçada ou faixa.", fine: 15000, bail: 6000, arrest: 20 },
+      { cat: 7, art: "Art. 7.12", title: "Rampa ou Obstáculo em Rodovia", desc: "Colocar obstáculo em via pública para provocar acidentes.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 7, art: "Art. 7.13", title: "Pilotagem Perigosa de Motocicleta", desc: "Manobras arriscadas e pilotagem agressiva de motos.", fine: 8000, bail: 3000, arrest: 10 },
+      { cat: 7, art: "Art. 7.14", title: "Veículo sem Licenciamento", desc: "Conduzir sem documentação regular obrigatória.", fine: 2000, bail: 1000, arrest: 0 },
+      { cat: 7, art: "Art. 7.15", title: "Abandono de Veículo em Local Indevido", desc: "Abandonar veículo obstruindo faixas de emergência ou vias.", fine: 1500, bail: 500, arrest: 0 },
+
+      // 8. CRIMES COM ARMAS E MUNIÇÕES
+      { cat: 8, art: "Art. 8.1", title: "Porte Ilegal de Arma de Uso Permitido", desc: "Portar pistola ou arma permitida sem autorização ou porte.", fine: 15000, bail: 6000, arrest: 20 },
+      { cat: 8, art: "Art. 8.2", title: "Porte Ilegal de Arma de Uso Restrito", desc: "Portar arma restrita a forças militares ou de calibre tático.", fine: 35000, bail: 0, arrest: 45 },
+      { cat: 8, art: "Art. 8.3", title: "Porte de Arma de Uso Proibido (Fuzil/SMG)", desc: "Portar armamento de guerra, metralhadoras ou fuzis automáticos.", fine: 60000, bail: 0, arrest: 75 },
+      { cat: 8, art: "Art. 8.4", title: "Comércio Ilegal de Armas", desc: "Vender, entregar ou fornecer armamentos e munições ilegalmente.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 8, art: "Art. 8.5", title: "Disparo de Arma em Área Urbana", desc: "Efetuar disparos sem justificativa em local habitado.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 8, art: "Art. 8.6", title: "Disparo contra Aeronave", desc: "Disparar contra helicópteros ou aeronaves em operação.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 8, art: "Art. 8.7", title: "Posse Irregular de Arma de Fogo", desc: "Guardar arma em imóvel sem registro legal.", fine: 12000, bail: 5000, arrest: 15 },
+      { cat: 8, art: "Art. 8.8", title: "Porte de Arma Branca com Intenção Hostil", desc: "Portar lâmina ou machado com evidente intenção de ataque.", fine: 5000, bail: 2000, arrest: 10 },
+      { cat: 8, art: "Art. 8.9", title: "Posse de Artefato Explosivo", desc: "Possuir granadas, explosivos ou coquetéis molotov.", fine: 70000, bail: 0, arrest: 75 },
+      { cat: 8, art: "Art. 8.10", title: "Uso de Explosivo em Ação", desc: "Detonar explosivos para destruir estruturas ou em confrontos.", fine: 100000, bail: 0, arrest: 100 },
+      { cat: 8, art: "Art. 8.11", title: "Adulteração de Arma de Fogo", desc: "Alterar mecanismo, cano ou numeração de armas.", fine: 25000, bail: 0, arrest: 30 },
+      { cat: 8, art: "Art. 8.12", title: "Porte de Arma com Numeração Raspada", desc: "Portar arma com identificação suprimida ou raspada.", fine: 30000, bail: 0, arrest: 40 },
+
+      // 9. CRIMES COM ENTORPECENTES
+      { cat: 9, art: "Art. 9.1", title: "Porte de Drogas para Uso Pessoal", desc: "Portar pequena quantidade para consumo próprio.", fine: 5000, bail: 2000, arrest: 10 },
+      { cat: 9, art: "Art. 9.2", title: "Tráfico de Entorpecentes", desc: "Comercializar, distribuir ou transportar drogas ilícitas.", fine: 50000, bail: 0, arrest: 60 },
+      { cat: 9, art: "Art. 9.3", title: "Tráfico Qualificado", desc: "Tráfico armado, próximo a escolas ou envolvendo organização criminosa.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 9, art: "Art. 9.4", title: "Associação para o Tráfico", desc: "União estável para a comercialização sistemática de entorpecentes.", fine: 60000, bail: 0, arrest: 70 },
+      { cat: 9, art: "Art. 9.5", title: "Financiamento ao Tráfico", desc: "Custear materiais ou aquisição de entorpecentes por terceiros.", fine: 70000, bail: 0, arrest: 80 },
+      { cat: 9, art: "Art. 9.6", title: "Produção de Entorpecente", desc: "Cultivar ou processar substâncias ilícitas em escala.", fine: 70000, bail: 0, arrest: 80 },
+      { cat: 9, art: "Art. 9.7", title: "Posse de Laboratório Clandestino", desc: "Manter imóvel com maquinário para refino de drogas.", fine: 90000, bail: 0, arrest: 90 },
+      { cat: 9, art: "Art. 9.8", title: "Transporte de Drogas em Veículo", desc: "Transportar entorpecentes em veículos ou aeronaves.", fine: 55000, bail: 0, arrest: 65 },
+      { cat: 9, art: "Art. 9.9", title: "Lavagem de Dinheiro do Tráfico", desc: "Ocultar bens provenientes do comércio ilícito de drogas.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 9, art: "Art. 9.10", title: "Oferta de Droga a Menor", desc: "Fornecer entorpecente a menores de 18 anos.", fine: 80000, bail: 0, arrest: 80 },
+
+      // 10. CRIMES CONTRA A ORDEM PÚBLICA
+      { cat: 10, art: "Art. 10.1", title: "Perturbação do Sossego Público", desc: "Algazarra, som abusivo e gritaria excessiva.", fine: 2000, bail: 1000, arrest: 5 },
+      { cat: 10, art: "Art. 10.2", title: "Vandalismo em Via Pública", desc: "Depredar monumentos, bancos e sinalizações públicas.", fine: 8000, bail: 3000, arrest: 10 },
+      { cat: 10, art: "Art. 10.3", title: "Tumulto e Aglomeração Hostil", desc: "Promover tumulto para intimidar a população.", fine: 6000, bail: 2500, arrest: 10 },
+      { cat: 10, art: "Art. 10.4", title: "Apologia ao Crime", desc: "Enaltecer condutas criminosas ou foragidos em público.", fine: 10000, bail: 4000, arrest: 15 },
+      { cat: 10, art: "Art. 10.5", title: "Incitação ao Crime", desc: "Incitar civis à prática de atos violentos ou desordem.", fine: 15000, bail: 5000, arrest: 20 },
+      { cat: 10, art: "Art. 10.6", title: "Bloqueio Ilegal de Via Pública", desc: "Impedir o trânsito com barricadas ou veículos sem permissão.", fine: 8000, bail: 3000, arrest: 10 },
+      { cat: 10, art: "Art. 10.7", title: "Disparo de Fogos em Perímetro Urbano", desc: "Utilizar fogos de artifício oferecendo perigo à vizinhança.", fine: 3000, bail: 1500, arrest: 5 },
+      { cat: 10, art: "Art. 10.8", title: "Porte de Máscara em Manifestação", desc: "Ocultar o rosto para a prática de delitos em aglomerações.", fine: 5000, bail: 2000, arrest: 10 },
+      { cat: 10, art: "Art. 10.9", title: "Incêndio Doloso", desc: "Atear fogo em veículos, edificações ou áreas de preservação.", fine: 50000, bail: 0, arrest: 60 },
+      { cat: 10, art: "Art. 10.10", title: "Alarme Falso de Explosivo (Trote)", desc: "Acionar falso alarme de bomba mobilizando emergências.", fine: 25000, bail: 8000, arrest: 25 },
+      { cat: 10, art: "Art. 10.11", title: "Interferência com Operação Aérea", desc: "Mirar lasers ou atentar contra operações de aeronaves.", fine: 60000, bail: 0, arrest: 60 },
+      { cat: 10, art: "Art. 10.12", title: "Invasão de Propriedade", desc: "Adentrar imóvel particular ou público sem consentimento.", fine: 5000, bail: 2000, arrest: 10 },
+
+      // 11. CRIMES ORGANIZADOS
+      { cat: 11, art: "Art. 11.1", title: "Associação Criminosa", desc: "Reunião de três ou mais indivíduos para a prática de crimes.", fine: 40000, bail: 0, arrest: 45 },
+      { cat: 11, art: "Art. 11.2", title: "Organização Criminosa", desc: "Estrutura hierarquizada voltada a crimes graves e ilícitos.", fine: 70000, bail: 0, arrest: 75 },
+      { cat: 11, art: "Art. 11.3", title: "Liderança de Facção / Cartel", desc: "Exercer cargo de comando em organização criminosa.", fine: 100000, bail: 0, arrest: 100 },
+      { cat: 11, art: "Art. 11.4", title: "Lavagem de Dinheiro Organizada", desc: "Esquema estruturado para ocultação de patrimônio ilícito.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 11, art: "Art. 11.5", title: "Financiamento de Facções", desc: "Aportar recursos ou logística para grupos organizados.", fine: 80000, bail: 0, arrest: 80 },
+      { cat: 11, art: "Art. 11.6", title: "Colaboração Informativa com Facção", desc: "Fornecer dados privilegiados ou suporte logístico a criminosos.", fine: 35000, bail: 0, arrest: 40 },
+      { cat: 11, art: "Art. 11.7", title: "Terrorismo Urbano", desc: "Ações coordenadas de sabotagem e pânico social contra o Estado.", fine: 100000, bail: 0, arrest: 120 },
+      { cat: 11, art: "Art. 11.8", title: "Cobrança de 'Taxa de Proteção'", desc: "Extorquir comerciantes locais mediante coação de facção.", fine: 70000, bail: 0, arrest: 70 },
+      { cat: 11, art: "Art. 11.9", title: "Jogos Clandestinos e Cassinos Ilegais", desc: "Explorar cassinos e apostas não autorizadas pela prefeitura.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 11, art: "Art. 11.10", title: "Receptação em Grande Escala", desc: "Administrar rede de desmanche e repasse de itens furtados.", fine: 50000, bail: 0, arrest: 55 },
+
+      // 12. CRIMES CIBERNÉTICOS E FRAUDES
+      { cat: 12, art: "Art. 12.1", title: "Falsidade Ideológica", desc: "Inserir declaração falsa em documentos públicos ou privados.", fine: 15000, bail: 6000, arrest: 20 },
+      { cat: 12, art: "Art. 12.2", title: "Uso de Documento Falso", desc: "Apresentar documento adulterado a autoridades.", fine: 12000, bail: 5000, arrest: 15 },
+      { cat: 12, art: "Art. 12.3", title: "Falsificação de Documentos Oficiais", desc: "Produzir ou falsificar papéis e certidões públicas.", fine: 30000, bail: 10000, arrest: 35 },
+      { cat: 12, art: "Art. 12.4", title: "Fraude de Identidade", desc: "Utilizar dados de terceiro para obter proveito ilícito.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 12, art: "Art. 12.5", title: "Fraude Bancária e Eletrônica", desc: "Invadir contas ou burlar terminais de pagamento eletrônico.", fine: 35000, bail: 10000, arrest: 40 },
+      { cat: 12, art: "Art. 12.6", title: "Clonagem de Placas e Veículos", desc: "Replicar dados identificadores de veículo de terceiro.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 12, art: "Art. 12.7", title: "Golpe Eletrônico / Estelionato Virtual", desc: "Praticar golpes de estelionato por meios digitais.", fine: 30000, bail: 10000, arrest: 35 },
+      { cat: 12, art: "Art. 12.8", title: "Fraude em Concurso e Licitações", desc: "Burlar seleções públicas municipais para obter cargos.", fine: 40000, bail: 12000, arrest: 40 },
+      { cat: 12, art: "Art. 12.9", title: "Interceptação Ilegal de Comunicação", desc: "Grampear ou monitorar rádios privados sem ordem judicial.", fine: 20000, bail: 8000, arrest: 25 },
+      { cat: 12, art: "Art. 12.10", title: "Ataque a Sistemas de Segurança Pública", desc: "Invadir câmeras, radares ou infraestrutura municipal.", fine: 50000, bail: 0, arrest: 55 },
+
+      // 13. CONTRAVENÇÕES E INFRAÇÕES ADMINISTRATIVAS
+      { cat: 13, art: "Art. 13.1", title: "Embriaguez Escandalosa em Via Pública", desc: "Estado de embriaguez causando constrangimento e baderna.", fine: 1500, bail: 500, arrest: 0 },
+      { cat: 13, art: "Art. 13.2", title: "Porte de Arma Branca sem Justificativa", desc: "Portar lâminas ou facas em locais públicos sem trabalho comprovado.", fine: 2000, bail: 800, arrest: 5 },
+      { cat: 13, art: "Art. 13.3", title: "Desrespeito à Sinalização de Trânsito", desc: "Avançar sinais vermelhos e placas de parada obrigatória.", fine: 1000, bail: 500, arrest: 0 },
+      { cat: 13, art: "Art. 13.4", title: "Recusa de Identificação a Policial", desc: "Recusar-se a apresentar documento aos agentes de segurança.", fine: 2000, bail: 1000, arrest: 5 },
+      { cat: 13, art: "Art. 13.5", title: "Baderna em Estabelecimento Comercial", desc: "Provocar brigas e quebra-quebra em lojas ou postos.", fine: 2500, bail: 1000, arrest: 5 },
+      { cat: 13, art: "Art. 13.6", title: "Uso Indevido de Solo Público", desc: "Armazenar materiais ilícitos ou ocupar calçadas sem licença.", fine: 5000, bail: 2000, arrest: 10 },
+      { cat: 13, art: "Art. 13.7", title: "Abandono ou Maus-Tratos de Animais", desc: "Abandonar animal doméstico em via pública sem assistência.", fine: 2000, bail: 1000, arrest: 0 },
+      { cat: 13, art: "Art. 13.8", title: "Descumprimento de Medida Cautelar", desc: "Desobedecer ordem judicial restritiva de afastamento.", fine: 8000, bail: 3000, arrest: 15 },
+      { cat: 13, art: "Art. 13.9", title: "Jogo de Azar em Calçadas Públicas", desc: "Promover jogatina clandestina em praças ou vias.", fine: 3000, bail: 1500, arrest: 5 },
+      { cat: 13, art: "Art. 13.10", title: "Comércio Ambulante sem Alvará", desc: "Venda ambulante sem recolhimento e permissão da prefeitura.", fine: 1500, bail: 500, arrest: 0 },
+      { cat: 13, art: "Art. 13.11", title: "Porte de Instrumentos de Arrombamento", desc: "Portar gazuas ou pé de cabra sem justificativa profissional.", fine: 5000, bail: 2000, arrest: 10 },
+      { cat: 13, art: "Art. 13.12", title: "Omissão de Socorro", desc: "Deixar de prestar auxílio ou acionar socorro em caso de emergência médica evidente.", fine: 5000, bail: 2000, arrest: 10 }
+    ];
+
+    // RENDERIZAR NA TABELA
+    const tableBody = document.getElementById('penalTableBody');
+    const searchInput = document.getElementById('searchPenal');
+    const noResults = document.getElementById('noResults');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    let currentCategory = 'all';
+    let currentQuery = '';
+
+    function formatCurrency(val) {
+      return 'R$ ' + val.toLocaleString('pt-BR');
+    }
+
+    function renderTable() {
+      tableBody.innerHTML = '';
+      
+      const filtered = penalData.filter(item => {
+        const matchesCategory = (currentCategory === 'all') || (item.cat.toString() === currentCategory);
+        const searchTarget = `${item.art} ${item.title} ${item.desc}`.toLowerCase();
+        const matchesSearch = searchTarget.includes(currentQuery);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        filtered.forEach(item => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-vanguard-card/40 transition-colors border-b border-vanguard-border/30';
+          
+          tr.innerHTML = `
+            <td class="p-4 font-mono font-bold text-vanguard-accent whitespace-nowrap">${item.art}</td>
+            <td class="p-4">
+              <strong class="text-white block text-sm mb-0.5">${item.title}</strong>
+              <span class="text-slate-400 text-xs leading-relaxed">${item.desc}</span>
+            </td>
+            <td class="p-4 text-right font-mono font-semibold text-rose-300 whitespace-nowrap">${formatCurrency(item.fine)}</td>
+            <td class="p-4 text-right font-mono font-semibold whitespace-nowrap ${item.bail > 0 ? 'text-amber-400' : 'text-slate-500'}">
+              ${item.bail > 0 ? formatCurrency(item.bail) : 'Inafiançável'}
+            </td>
+            <td class="p-4 text-right font-mono font-bold whitespace-nowrap ${item.arrest > 0 ? 'text-sky-400' : 'text-slate-500'}">
+              ${item.arrest > 0 ? item.arrest + ' serv.' : '—'}
+            </td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      }
+    }
+
+    // BUSCA INSTANTÂNEA
+    searchInput.addEventListener('input', (e) => {
+      currentQuery = e.target.value.toLowerCase().trim();
+      renderTable();
+    });
+
+    // BOTÕES DE FILTRO
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'border-vanguard-accent', 'bg-vanguard-accent/10', 'text-vanguard-accent', 'font-semibold');
+          b.classList.add('border-vanguard-border', 'bg-vanguard-dark', 'text-slate-300');
+        });
+
+        btn.classList.add('active', 'border-vanguard-accent', 'bg-vanguard-accent/10', 'text-vanguard-accent', 'font-semibold');
+        btn.classList.remove('border-vanguard-border', 'bg-vanguard-dark', 'text-slate-300');
+
+        currentCategory = btn.getAttribute('data-category');
+        renderTable();
+      });
+    });
+
+    // RENDER INICIAL
+    renderTable();
+  </script>
+
+</body>
+</html>

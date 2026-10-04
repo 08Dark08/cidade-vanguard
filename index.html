@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade Vanguard — Onde Sua História Acontece</title>
+  
+  <!-- Fontes Oficiais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vanguard: {
+              darkest: '#030712',
+              dark: '#081325',
+              card: '#0c1d36',
+              border: '#1b3558',
+              primary: '#2563eb',
+              accent: '#38bdf8',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            title: ['Orbitron', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .scanlines {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(37, 99, 235, 0.02), rgba(0, 0, 0, 0), rgba(56, 189, 248, 0.02));
+      background-size: 100% 3px, 6px 100%;
+    }
+    @keyframes bounceEqualizer {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .eq-bar-1 { animation: bounceEqualizer 0.8s ease-in-out infinite; }
+    .eq-bar-2 { animation: bounceEqualizer 1.1s ease-in-out infinite 0.2s; }
+    .eq-bar-3 { animation: bounceEqualizer 0.7s ease-in-out infinite 0.4s; }
+  </style>
+</head>
+
+<body class="bg-vanguard-darkest text-slate-100 font-sans h-full overflow-x-hidden selection:bg-vanguard-accent selection:text-vanguard-darkest">
+
+<!-- VÍDEO LOCAL DE FUNDO (VISIBILIDADE CALIBRADA E NÍTIDA) -->
+  <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+    <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-75 filter brightness-105 contrast-110">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <!-- Gradiente suave translúcido: preserva o vídeo e garante contraste perfeito nas fontes -->
+    <div class="absolute inset-0 bg-gradient-to-t from-vanguard-darkest/95 via-vanguard-darkest/50 to-vanguard-darkest/75"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_20%,_#030712_90%)]"></div>
+    <div class="absolute inset-0 scanlines opacity-20"></div>
+  </div>
+
+  <div class="relative z-10 min-h-screen flex flex-col justify-between">
+
+    <!-- 1. TOPBAR TELEMETRIA -->
+    <div class="w-full border-b border-vanguard-border/40 bg-vanguard-darkest/85 backdrop-blur-md px-4 sm:px-8 py-1.5 text-[10px] font-mono text-slate-400 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5 text-vanguard-accent">
+          <i data-lucide="shield" class="w-3.5 h-3.5"></i> VANGUARD ROLEPLAY • BRASIL
+        </span>
+        <span class="hidden sm:flex items-center gap-1.5 text-emerald-400">
+          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> SISTEMA OPERACIONAL ATIVO
+        </span>
+        <span class="hidden md:flex items-center gap-1.5 text-slate-400">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-vanguard-accent"></i> FRAMEWORK ESTÁVEL 128 TICK
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          REDE PRINCIPAL ONLINE
+        </span>
+        <span class="text-vanguard-accent">LATÊNCIA: <span id="pingValue">22ms</span></span>
+      </div>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <header class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-vanguard-primary to-vanguard-accent rounded-xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+          <div class="relative w-12 h-12 rounded-xl bg-vanguard-card border border-vanguard-accent/40 flex items-center justify-center overflow-hidden shadow-xl">
+            <img src="logo.png" alt="Cidade Vanguard" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div>
+          <span class="font-title font-black text-xl tracking-widest text-white block">CIDADE VANGUARD</span>
+          <span class="text-[10px] text-vanguard-accent font-mono tracking-widest uppercase block -mt-1">PROGRESSO E FUTURO • 2026</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-1.5 bg-vanguard-dark/85 backdrop-blur-md px-4 py-1.5 rounded-full border border-vanguard-border/60 text-xs font-semibold uppercase tracking-wider text-slate-300">
+        <a href="index.html" class="px-3.5 py-1.5 text-vanguard-accent bg-vanguard-accent/10 rounded-full border border-vanguard-accent/30 transition-all">Início</a>
+        <a href="regras.html" class="px-3.5 py-1.5 hover:text-white hover:bg-vanguard-card rounded-full transition-all">Código de Leis</a>
+        <a href="penal.html" class="px-3.5 py-1.5 hover:text-white hover:bg-vanguard-card rounded-full transition-all">Código Penal (MDT)</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://discord.gg/FyrDyFcNqF" target="_blank" class="flex items-center gap-2.5 text-xs font-semibold bg-[#5865F2] hover:bg-[#4752c4] text-white px-4 py-2.5 rounded-xl shadow-lg shadow-[#5865F2]/25 transition-all">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 127.14 96.36">
+            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.91,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,45.91,96.12,53,91.08,65.69,84.69,65.69Z"/>
+          </svg>
+          <span class="hidden sm:inline">Discord Oficial</span>
+        </a>
+
+        <a id="btnJogarNav" href="fivem://connect/SEU_IP_AQUI" class="flex items-center gap-2 text-xs font-title font-bold bg-gradient-to-r from-vanguard-primary to-blue-600 hover:from-blue-600 hover:to-vanguard-accent text-white px-5 py-2.5 rounded-xl shadow-lg shadow-vanguard-primary/30 transition-all border border-blue-400/40">
+          <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+          <span>JOGAR</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- TICKER -->
+    <div class="w-full bg-vanguard-dark/60 border-y border-vanguard-border/30 backdrop-blur-sm py-1.5 px-4 overflow-hidden">
+      <div class="max-w-7xl mx-auto flex items-center gap-3 text-xs font-mono">
+        <span class="flex items-center gap-1.5 text-vanguard-accent font-bold shrink-0">
+          <span class="w-2 h-2 rounded-full bg-vanguard-accent animate-pulse"></span> DIÁRIO OFICIAL //
+        </span>
+        <span class="text-slate-300 truncate">
+          CIDADE VANGUARD: ECONOMIA BALANCEADA • WHITELIST ABERTA • SISTEMAS EXCLUSIVOS DE POLÍCIA, HOSPITAL, MECÂNICAS E TRIBUNAIS
+        </span>
+      </div>
+    </div>
+
+    <!-- 3. CORPO HERO -->
+    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 my-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-vanguard-accent/30 bg-vanguard-card/60 text-vanguard-accent text-xs font-mono uppercase tracking-widest">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> EXPERIÊNCIA DE ROLEPLAY SÉRIO
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-title font-black text-white tracking-tight leading-none uppercase">
+            CADA ESCOLHA CONTA. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-vanguard-accent via-blue-400 to-vanguard-primary">SUA HISTÓRIA</span> COMEÇA AQUI.
+          </h1>
+
+          <div class="space-y-3.5 text-sm text-slate-300 leading-relaxed max-w-xl font-normal">
+            <p>
+              A <strong class="text-white">Cidade Vanguard</strong> foi desenhada para quem busca imersão profunda, histórias consistentes e um ambiente maduro. Aqui, o foco nunca é a correria sem sentido, mas sim o desenvolvimento de personagens únicos que constroem juntos a narrativa viva da metrópole.
+            </p>
+            <p class="text-xs text-vanguard-muted">
+              Seja na carreira jurídica, no atendimento de emergência do hospital, na liderança de empresas ou nas organizações que operam nas sombras da cidade, cada ação sua gera consequências reais na economia e na sociedade de Vanguard.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="regras.html" class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider shadow-lg shadow-vanguard-primary/40 border border-blue-400/50 transition-all">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>CÓDIGO DE LEIS</span>
+            </a>
+
+            <a href="penal.html" class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-vanguard-card/80 hover:bg-vanguard-card text-slate-200 hover:text-white font-title font-semibold text-xs uppercase tracking-wider border border-vanguard-border/70 hover:border-vanguard-accent/40 transition-all">
+              <i data-lucide="scale" class="w-4 h-4 text-vanguard-accent"></i>
+              <span>CÓDIGO PENAL</span>
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-6 pt-4 text-xs font-mono text-slate-400">
+            <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> ROLEPLAY SÉRIO</span>
+            <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-vanguard-accent"></i> ECONOMIA REALISTA</span>
+            <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400"></i> SUPORTE ATIVO</span>
+          </div>
+        </div>
+
+        <!-- CARD HUD DE STATUS -->
+        <div class="lg:col-span-5">
+          <div class="bg-vanguard-dark/95 border border-vanguard-border/80 rounded-2xl p-6 sm:p-7 backdrop-blur-xl shadow-2xl shadow-black/80 space-y-6">
+            
+            <div class="flex items-center justify-between border-b border-vanguard-border/60 pb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-mono text-xs font-bold text-white uppercase tracking-wider">CIDADE EM FUNCIONAMENTO</span>
+              </div>
+              <span class="text-[10px] font-mono text-vanguard-accent bg-vanguard-accent/10 px-2.5 py-1 rounded border border-vanguard-accent/30 font-bold" id="serverSlots">128 SLOTS</span>
+            </div>
+
+            <div>
+              <span class="text-[10px] font-mono text-vanguard-muted block uppercase tracking-widest mb-1">MUNICÍPIO VANGUARD</span>
+              <h3 class="font-title font-black text-xl text-white tracking-wide">VANGUARD ROLEPLAY [BRASIL]</h3>
+            </div>
+
+            <!-- CONTADOR DE CIDADÃOS -->
+            <div class="space-y-2">
+              <div class="flex justify-between items-center text-xs font-mono">
+                <span class="text-slate-400 flex items-center gap-1.5">
+                  <i data-lucide="users" class="w-4 h-4 text-vanguard-accent"></i> CIDADÃOS CONECTADOS
+                </span>
+                <span class="text-white font-bold font-mono">
+                  <span id="playerCount" class="text-emerald-400 text-sm">--</span> / <span id="playerMax">128</span>
+                </span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-vanguard-darkest overflow-hidden border border-vanguard-border/60">
+                <div id="playerBar" class="h-full bg-gradient-to-r from-vanguard-primary to-vanguard-accent rounded-full transition-all duration-700" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+              <div class="p-3 bg-vanguard-card/60 rounded-xl border border-vanguard-border/40">
+                <span class="text-[10px] text-vanguard-muted block uppercase">TEMPO DE RESPOSTA</span>
+                <span class="text-emerald-400 font-bold text-sm flex items-center gap-1.5 mt-0.5">
+                  <i data-lucide="wifi" class="w-3.5 h-3.5"></i> <span id="pingCounter">22ms</span>
+                </span>
+              </div>
+
+              <div class="p-3 bg-vanguard-card/60 rounded-xl border border-vanguard-border/40">
+                <span class="text-[10px] text-vanguard-muted block uppercase">STATUS DO SERVIDOR</span>
+                <span class="text-sky-400 font-bold text-sm flex items-center gap-1.5 mt-0.5" id="serverStatusText">
+                  <i data-lucide="activity" class="w-3.5 h-3.5"></i> ONLINE
+                </span>
+              </div>
+            </div>
+
+            <!-- BOTÃO CONECTAR CENTRAL -->
+            <a id="btnJogarCard" href="fivem://connect/SEU_IP_AQUI" class="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-vanguard-primary to-blue-600 hover:from-blue-600 hover:to-vanguard-accent text-white font-title font-bold text-xs uppercase tracking-wider shadow-lg shadow-vanguard-primary/30 transition-all border border-blue-400/40">
+              <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+              <span>CONECTAR AO SERVIDOR</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- 4. FOOTER COM O TOCADOR LOCAL -->
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-3 bg-vanguard-dark/95 border border-vanguard-border/70 p-2.5 rounded-2xl backdrop-blur-md shadow-2xl">
+        <button id="audioToggle" class="w-10 h-10 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white flex items-center justify-center transition-all shadow-md shadow-vanguard-primary/30 shrink-0">
+          <i data-lucide="volume-2" id="audioIcon" class="w-5 h-5"></i>
+        </button>
+
+        <div class="pr-3">
+          <div class="flex items-center gap-2">
+            <span class="text-[9px] font-mono text-vanguard-accent uppercase tracking-widest font-bold">VANGUARD FM • 104.7 MHZ</span>
+            <div id="equalizer" class="hidden items-end gap-0.5 h-3">
+              <span class="w-1 bg-vanguard-accent rounded-full eq-bar-1"></span>
+              <span class="w-1 bg-vanguard-accent rounded-full eq-bar-2"></span>
+              <span class="w-1 bg-vanguard-accent rounded-full eq-bar-3"></span>
+            </div>
+          </div>
+          <span class="text-xs font-semibold text-white block -mt-0.5" id="audioStatusText">Ligar Transmissão</span>
+        </div>
+      </div>
+
+      <div class="text-center sm:text-right text-[11px] font-mono text-vanguard-muted">
+        <p>CIDADE VANGUARD © 2026 • TODOS OS DIREITOS RESERVADOS</p>
+        <p class="text-slate-500">Desenvolvido com padrão visual de alta fidelidade e foco em Roleplay sério.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ARQUIVO LOCAL DE ÁUDIO (musica.mp3) -->
+  <audio id="themeMusic" loop preload="none">
+    <source src="musica.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- SCRIPT INTEGRADO: CONTADOR FIVEM + AUDIO -->
+  <script>
+    lucide.createIcons();
+
+// ==========================================
+    // ⚙️ CONFIGURAÇÃO FIVEM LOCALHOST
+    // ==========================================
+    const SERVER_IP = "127.0.0.1:30120";
+
+    // Conexão direta com FiveM local
+    document.getElementById('btnJogarNav').href = `fivem://connect/${SERVER_IP}`;
+    document.getElementById('btnJogarCard').href = `fivem://connect/${SERVER_IP}`;
+
+    // Consulta em tempo real de Players & Slots no Localhost
+    async function fetchServerStatus() {
+      const playerCount = document.getElementById('playerCount');
+      const playerMax = document.getElementById('playerMax');
+      const playerBar = document.getElementById('playerBar');
+      const pingCounter = document.getElementById('pingCounter');
+      const serverStatusText = document.getElementById('serverStatusText');
+
+      try {
+        // 1. Tenta puxar os dados dinâmicos do servidor (clients / maxclients)
+        const resDynamic = await fetch(`http://${SERVER_IP}/dynamic.json`, { cache: "no-store" });
+        
+        if (resDynamic.ok) {
+          const data = await resDynamic.json();
+          const totalOnline = data.clients || 0;
+          const maxSlots = data.sv_maxclients || 128;
+
+          playerCount.textContent = totalOnline;
+          playerMax.textContent = maxSlots;
+          playerBar.style.width = Math.min(100, (totalOnline / maxSlots) * 100) + '%';
+          
+          pingCounter.textContent = "1ms"; // Localhost
+          serverStatusText.innerHTML = `<i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i> ONLINE`;
+          lucide.createIcons();
+          return;
+        }
+      } catch (e) {
+        // Se a base estiver desligada no momento, exibe "EM MANUTENÇÃO" ou fallback
+        serverStatusText.innerHTML = `<i data-lucide="wrench" class="w-3.5 h-3.5 text-amber-400"></i> MODO DEV`;
+        lucide.createIcons();
+      }
+
+      // Fallback estético enquanto o server estiver reiniciando:
+      let simulated = parseInt(playerCount.textContent);
+      if (isNaN(simulated) || simulated === 0) simulated = 1;
+      playerCount.textContent = simulated;
+      playerBar.style.width = ((simulated / 128) * 100).toFixed(1) + '%';
+    }
+
+    fetchServerStatus();
+    setInterval(fetchServerStatus, 5000);
+
+    // ==========================================
+    // 🎵 TOCADOR DE MÚSICA LOCAL (musica.mp3)
+    // ==========================================
+    const audioToggle = document.getElementById('audioToggle');
+    const audioIcon = document.getElementById('audioIcon');
+    const audioStatusText = document.getElementById('audioStatusText');
+    const themeMusic = document.getElementById('themeMusic');
+    const equalizer = document.getElementById('equalizer');
+    let isPlaying = false;
+
+    audioToggle.addEventListener('click', () => {
+      if (!isPlaying) {
+        themeMusic.volume = 0.35;
+        themeMusic.play().then(() => {
+          isPlaying = true;
+          audioStatusText.textContent = "Transmitindo Ao Vivo...";
+          audioStatusText.classList.add("text-emerald-400");
+          audioToggle.classList.add("bg-emerald-500", "shadow-emerald-500/30");
+          audioToggle.classList.remove("bg-vanguard-primary");
+          equalizer.classList.remove("hidden");
+          equalizer.classList.add("flex");
+          audioIcon.setAttribute("data-lucide", "volume-x");
+          lucide.createIcons();
+        }).catch(err => {
+          alert("Não foi possível tocar 'musica.mp3'. Certifique-se de que o arquivo existe na pasta com esse nome exato.");
+        });
+      } else {
+        themeMusic.pause();
+        isPlaying = false;
+        audioStatusText.textContent = "Ligar Transmissão";
+        audioStatusText.classList.remove("text-emerald-400");
+        audioToggle.classList.remove("bg-emerald-500", "shadow-emerald-500/30");
+        audioToggle.classList.add("bg-vanguard-primary");
+        equalizer.classList.add("hidden");
+        equalizer.classList.remove("flex");
+        audioIcon.setAttribute("data-lucide", "volume-2");
+        lucide.createIcons();
+      }
+    });
+  </script>
+
+</body>
+</html>

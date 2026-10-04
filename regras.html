@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade Vanguard — Diretrizes & Código de Leis Oficiais 2026</title>
+  
+  <!-- Fontes Oficiais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vanguard: {
+              darkest: '#030712',
+              dark: '#081325',
+              card: '#0f223f',
+              border: '#1b3558',
+              primary: '#2563eb',
+              accent: '#38bdf8',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            title: ['Orbitron', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb { background: #1b3558; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+    .bg-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, rgba(3, 7, 18, 0) 70%);
+    }
+  </style>
+</head>
+
+<body class="bg-vanguard-darkest text-slate-200 font-sans min-h-screen bg-glow antialiased selection:bg-vanguard-accent selection:text-vanguard-darkest">
+
+<!-- NAVBAR FIXA PADRONIZADA -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-vanguard-darkest/90 border-b border-vanguard-border/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-vanguard-primary to-vanguard-accent flex items-center justify-center shadow-lg shadow-vanguard-primary/20">
+            <i data-lucide="shield" class="w-5 h-5 text-white"></i>
+          </div>
+          <div>
+            <span class="font-title font-bold text-lg text-white tracking-wider">CIDADE VANGUARD</span>
+            <span class="text-[11px] text-vanguard-accent block -mt-1 font-medium tracking-widest uppercase">Diário Oficial • Edição Completa 2026</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-1.5 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="penal.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-vanguard-accent bg-vanguard-accent/10 border border-vanguard-accent/40 hover:bg-vanguard-accent hover:text-vanguard-darkest transition-all px-3 py-1.5 rounded-lg">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+          <span>Código Penal</span>
+        </a>
+
+        <a href="https://discord.gg/cidade-vanguard" target="_blank" class="flex items-center gap-2 text-xs font-semibold bg-vanguard-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all shadow-md shadow-vanguard-primary/20">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>Discord</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / BANNER PRINCIPAL -->
+  <section class="relative pt-12 pb-8 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-vanguard-accent/30 bg-vanguard-card/60 text-vanguard-accent text-xs font-medium mb-4">
+      <span class="w-2 h-2 rounded-full bg-vanguard-accent animate-pulse"></span>
+      Gabinete Executivo Municipal • Código de Leis Vigente 2026
+    </div>
+    
+    <h1 class="text-3xl sm:text-5xl font-title font-black text-white tracking-tight mb-4">
+      LEIS & DIRETRIZES <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-vanguard-accent to-vanguard-primary">CIDADE VANGUARD</span>
+    </h1>
+    
+    <p class="text-vanguard-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
+      Ao ingressar na Cidade Vanguard, você declara ciência irrestrita e responsabilidade direta pelo cumprimento integral de todas as leis deste compêndio. O bom senso, a imersão e a valorização das histórias coletivas são a chave de ouro de nossa sociedade.
+    </p>
+
+    <!-- BARRA DE BUSCA EM TEMPO REAL -->
+    <div class="relative max-w-xl mx-auto">
+      <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-vanguard-muted"></i>
+      <input 
+        type="text" 
+        id="searchRule" 
+        placeholder="Pesquise por termo ou regra (ex: crash, nióbio, criança, safezone, doxxing)..." 
+        class="w-full pl-12 pr-4 py-3.5 bg-vanguard-dark/90 border border-vanguard-border focus:border-vanguard-accent focus:ring-2 focus:ring-vanguard-accent/20 rounded-xl text-sm text-white placeholder-vanguard-muted outline-none transition-all shadow-xl shadow-black/40"
+      >
+    </div>
+  </section>
+
+  <!-- CONTAINER GERAL CENTRALIZADO -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative">
+    
+    <!-- SUBMENU FLUTUANTE NA ESQUERDA -->
+    <aside class="hidden xl:block fixed left-6 top-28 w-64 z-30">
+      <div class="bg-vanguard-dark/95 p-4 rounded-2xl border border-vanguard-border/60 backdrop-blur-md shadow-2xl max-h-[82vh] overflow-y-auto">
+        <p class="text-[11px] font-title font-bold text-vanguard-accent tracking-widest uppercase mb-3 px-1">Diário Municipal</p>
+        <nav class="space-y-1 text-xs">
+          <a href="#pilares" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="brain" class="w-3.5 h-3.5 text-sky-400"></i> Pilares do RP</a>
+          <a href="#discord-comunidade" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="messages-square" class="w-3.5 h-3.5 text-blue-400"></i> Discord & Convivência</a>
+          <a href="#punicoes" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="scale" class="w-3.5 h-3.5 text-amber-400"></i> Sistema Disciplinar</a>
+          <a href="#denuncias" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="video" class="w-3.5 h-3.5 text-emerald-400"></i> Como Denunciar</a>
+          <a href="#basicas" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="book-open" class="w-3.5 h-3.5 text-indigo-400"></i> Regras Básicas</a>
+          <a href="#antirp" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="ban" class="w-3.5 h-3.5 text-rose-400"></i> Anti-RP & Dark RP</a>
+          <a href="#combate" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="crosshair" class="w-3.5 h-3.5 text-cyan-400"></i> RDM, VDM & Meta</a>
+          <a href="#combatlog" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="plug-zap" class="w-3.5 h-3.5 text-yellow-400"></i> Combat-Log & Crash</a>
+          <a href="#bugs-rk" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="cpu" class="w-3.5 h-3.5 text-violet-400"></i> Abuso de Bug & RK</a>
+          <a href="#safezones" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Safezones</a>
+          <a href="#personagem" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="baby" class="w-3.5 h-3.5 text-purple-400"></i> RP Infantil & Crianças</a>
+          <a href="#permadeath" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="skull" class="w-3.5 h-3.5 text-rose-500"></i> Amor à Vida & PD</a>
+          <a href="#acoes" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="swords" class="w-3.5 h-3.5 text-orange-400"></i> Ações & Sequestros</a>
+          <a href="#tabelas" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="table" class="w-3.5 h-3.5 text-blue-400"></i> Tabela de Limites</a>
+          <a href="#faccoes" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="flame" class="w-3.5 h-3.5 text-red-500"></i> Facções & Invasão</a>
+          <a href="#departamentos" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="building-2" class="w-3.5 h-3.5 text-indigo-400"></i> Departamentos</a>
+          <a href="#reshade" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="sliders" class="w-3.5 h-3.5 text-teal-400"></i> ReShade & Mods</a>
+          <a href="#doacoes" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-300 hover:bg-vanguard-card hover:text-white transition-all"><i data-lucide="coins" class="w-3.5 h-3.5 text-amber-300"></i> Doações & Termos</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL (EXATAMENTE NO CENTRO) -->
+    <div class="max-w-4xl mx-auto space-y-8" id="rulesContainer">
+
+      <!-- TOLERÂNCIA ZERO -->
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-rose-950/40 via-vanguard-dark to-vanguard-dark border border-rose-500/30 flex gap-4 items-start shadow-xl">
+        <div class="p-2.5 bg-rose-500/20 text-rose-400 rounded-xl shrink-0">
+          <i data-lucide="ban" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-title font-bold text-rose-300 uppercase tracking-wider mb-1.5">Tolerância Zero Municipal</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            A equipe da <strong class="text-white">CIDADE VANGUARD</strong> repudia e proíbe qualquer tipo de <strong>assédio, homofobia, preconceito, capacitismo, abuso, racismo ou discurso de ódio</strong>, seja ele in-game, no Discord ou em qualquer rede social externa. Ter bom senso é a chave de ouro para conviver em comunidade saudável. <span class="text-rose-400 font-bold underline underline-offset-2">TODOS OS ATOS MENCIONADOS RESULTAM EM BANIMENTO PERMANENTE IMEDIATO!</span>
+          </p>
+          <p class="text-xs text-slate-400 mt-2">
+            Independente de qualquer regra mencionada, a equipe operacional da Cidade Vanguard se reserva ao direito soberano de orientar e/ou retirar qualquer jogador que não se enquadre aos padrões éticos de convivência comunitária.
+          </p>
+        </div>
+      </div>
+
+      <!-- 1. PILARES DO ROLEPLAY -->
+      <article id="pilares" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-sky-500/10 text-sky-400 rounded-lg">
+            <i data-lucide="brain" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Pilares do Roleplay</h2>
+            <span class="text-xs text-vanguard-muted">Fundamentos comportamentais que regem todos os personagens</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300">
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <span class="font-bold text-vanguard-accent block">🧠 Bom Senso é a Chave de Ouro</span>
+            <p>Antes de agir, pergunte-se: uma pessoa real na vida cotidiana faria isso? Se a resposta for não, seu personagem também não faz. Nenhuma regra substitui o bom senso; ele cobre inclusive o que não está explicitamente textualizado aqui.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <span class="font-bold text-vanguard-accent block">🎭 Você é o Personagem Sempre</span>
+            <p>Dentro do servidor não existe "sair do RP" nem conversar fora do personagem. Ocorreu um bug, um problema técnico ou outro jogador quebrou regra? Siga a cena até o fim e reporte depois à staff. A imersão da comunidade vale mais que qualquer discussão no meio da rua.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <span class="font-bold text-vanguard-accent block">😵 Inconsciente é Inconsciente</span>
+            <p>Se o seu personagem desmaiar, ele permanece no chão, em silêncio, sem reagir, sem falar, sem "acordar sozinho" e sem passar rádio, até ser socorrido por um médico ou ser finalizado. Interprete as dores e o estado do seu corpo.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <span class="font-bold text-rose-400 block">⚖️ Dois Erros Não Fazem um Acerto</span>
+            <p>Se alguém infringir uma regra com você e você pagar na mesma moeda, quebrando outra regra, ambos serão punidos igualmente. Quebra de regra se resolve com denúncia formal, nunca com vingança fora da lei.</p>
+          </div>
+        </div>
+
+        <!-- MENSAGEM DA ADMINISTRAÇÃO -->
+        <div class="p-5 rounded-xl bg-blue-950/20 border border-vanguard-primary/40 space-y-2.5 text-xs sm:text-sm text-slate-300">
+          <div class="flex items-center gap-2 text-vanguard-accent">
+            <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+            <span class="font-title font-bold uppercase tracking-wider">Um Desabafo da Equipe Staff</span>
+          </div>
+          <p class="leading-relaxed">
+            Joguem direito. É só isso que pedimos. Se uma pessoa ou uma situação começou a te incomodar, a cidade é imensa: vá desenvolver roleplay com outros grupos e em outras regiões. Ninguém é obrigado a dividir história com quem não tem afinidade. Nossa experiência mostra o roteiro conhecido: começa uma picuinha interna, vem uma enxurrada e flood de denúncias sem substância, onde ninguém quer ceder. O resultado disso nunca foi justiça; o resultado disso é apenas desgaste e perda de jogadores. Quem encarnar uma cruzada pessoal colherá o prejuízo junto com todos nós. Ou a Cidade Vanguard vive para todos, ou não vive para ninguém.
+          </p>
+        </div>
+      </article>
+
+      <!-- 2. DISCORD & CONVIVÊNCIA COMUNITÁRIA -->
+      <article id="discord-comunidade" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-blue-500/10 text-sky-400 rounded-lg">
+            <i data-lucide="messages-square" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Diretrizes do Discord & Convivência</h2>
+            <span class="text-xs text-vanguard-muted">Regras aplicáveis a todos os canais de texto, salas de voz e privado</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- PROIBIÇÕES DO DISCORD -->
+          <div class="p-4 rounded-xl bg-rose-950/20 border border-rose-500/30 space-y-2.5 text-xs text-slate-300">
+            <span class="font-bold text-rose-400 uppercase tracking-wider block">🚫 Proibições Rígidas</span>
+            <ul class="space-y-2 list-disc list-inside leading-relaxed">
+              <li><strong>Desrespeito & Ódio:</strong> Insultos, assédio, preconceito ou agressões verbais dentro ou fora do personagem.</li>
+              <li><strong>Conteúdo Impróprio (NSFW):</strong> Pornografia, nudez ou violência explícita em qualquer canal.</li>
+              <li><strong>Arquivos Maliciosos:</strong> Links fraudulentos, executáveis suspeitos ou malwares.</li>
+              <li><strong>Exposição de Dados (Doxxing):</strong> Divulgar nome civil, fotos, residência ou redes sociais de outro jogador sem consentimento prévio.</li>
+              <li><strong>Divulgação de Outros Servidores:</strong> Divulgar qualquer servidor concorrente no chat público ou no privado resulta em <strong>banimento permanente sem conversa</strong>.</li>
+            </ul>
+          </div>
+
+          <!-- CONDUTA EM CANAIS PÚBLICOS -->
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2.5 text-xs text-slate-300">
+            <span class="font-bold text-amber-400 uppercase tracking-wider block">💬 Convivência em Chats Públicos</span>
+            <ul class="space-y-2 list-disc list-inside leading-relaxed">
+              <li><strong>Privado da Staff Não é Ticket:</strong> Procurar membros da staff no privado (DM) para pedidos pessoais acarreta suspensão de até 15 dias. Todas as solicitações devem ser tratadas formalmente por Ticket.</li>
+              <li><strong>Provocações & Alfinetadas:</strong> Proibido usar canais gerais para cutucar, farpar ou criar atritos. Desavenças se resolvem no jogo ou em denúncia.</li>
+              <li><strong>Insatisfação de RP:</strong> Não use chats públicos para desabafar descontentamento com o RP dos outros. Se não gostou, busque outros círculos de amizade; se houve quebra de regra, utilize o canal de denúncia.</li>
+              <li><strong>Apelido Obrigatório:</strong> Seu apelido no Discord deve refletir o nome do seu personagem (Ex: <em>James Maldonado</em>). Nomes ofensivos ou de deboche serão punidos e o custo de alteração não terá reembolso.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. PROTOCOLO DE DENÚNCIAS & CLIPS -->
+      <article id="denuncias" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-5 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+            <i data-lucide="video" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Protocolo Oficial de Denúncias</h2>
+            <span class="text-xs text-vanguard-muted">Procedimentos válidos para apuração disciplinar</span>
+          </div>
+        </div>
+
+        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <li class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Clip é Estritamente Obrigatório:</strong> Toda denúncia deve vir acompanhada de clipes contínuos com no mínimo <strong>2 minutos</strong>, demonstrando o contexto total do início ao fim da cena, áudio limpo e HUD visível. Sem clipe completo a denúncia é indeferida: palavra contra palavra não pune ninguém.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Como Denunciar:</strong> A denúncia oficial é realizada in-game através do comando <code>/denunciar</code> ou em canal restrito específico no Discord. Relate de forma objetiva: quem, quando, onde e qual regra foi violada.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Ticket Não é Canal de Denúncia:</strong> O suporte via ticket destina-se a dúvidas técnicas, compras e bugs. Denúncias abertas via ticket geral ou em canais de voz serão arquivadas.</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- 5. REGRAS BÁSICAS DA CIDADE -->
+      <article id="basicas" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Regras Básicas da Cidade</h2>
+            <span class="text-xs text-vanguard-muted">Normas de convívio in-game e preservação do roleplay</span>
+          </div>
+        </div>
+
+        <ul class="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Conceito de Leis:</strong> Dentro da cidade, sempre refira-se às regras do servidor como <strong>"Leis"</strong>.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Nunca Saia do RP:</strong> Nosso objetivo é criar histórias imersivas. Jamais interrompa a cena; conclua a narrativa e abra a denúncia depois.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Desmaio e Memória:</strong> Caso seu personagem desmaie, você nunca poderá lembrar do motivo ou das circunstâncias que levaram à perda de consciência.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Hierarquia e Procedimentos Policiais:</strong> Atuando como cidadão comum, jamais questione métodos ou procedimentos da polícia na rua. Caso queira debater condutas, realize recrutamento policial.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Personagens Troll:</strong> Nomes ou personagens criados para zombarias, deboches ou tumulto acarretam banimento imediato.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Comércio Paralelo:</strong> Comercializar dinheiro do jogo ou itens por moeda real fora dos Fundadores é expressamente proibido sob pena de ban sumário.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Microfone Push-to-Talk:</strong> É obrigatório manter seu microfone configurado no modo 'apertar para falar'.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Proteção a Empregos Legais:</strong> É terminantemente proibido o roubo ou sequestro de médico, mecânico e prestadores de serviços públicos em serviço.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Fotografar Cadáveres:</strong> É proibido fotografar, filmar cadáveres e divulgar nas redes sociais in-game ou externas.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-vanguard-accent shrink-0 mt-0.5"></i><span><strong>Rendimento Obrigatório:</strong> Ao colocar a mão para o alto ou na cabeça (F10 ou X), você é considerado rendido e não pode mais reagir.</span></li>
+        </ul>
+      </article>
+
+      <!-- 6. ANTI-RP, FLAMING & DARK RP -->
+      <article id="antirp" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-rose-500/10 text-rose-400 rounded-lg">
+            <i data-lucide="shield-alert" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Anti-Roleplay, Flaming & Dark RP</h2>
+            <span class="text-xs text-vanguard-muted">Violações narrativas e comportamentos destrutivos</span>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <div class="flex justify-between items-center">
+              <strong class="text-sky-400 uppercase">Anti-Roleplay</strong>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-500/20 text-sky-300">MÉDIO / LEVE</span>
+            </div>
+            <p>Trazer o mundo real para dentro do servidor: mencionar lives, redes sociais, comandos, "relogar", bugs ou termos técnicos durante a cena. Inclui falta de coerência com o universo (ex: ignorar arma apontada, tratar veículos como tanque indestrutível ou encarar a cidade como um playground mecânico sem valor narrativo).</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <div class="flex justify-between items-center">
+              <strong class="text-amber-400 uppercase">Flaming & Perseguição Camuflada</strong>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">GRAVE / MÉDIO</span>
+            </div>
+            <p>Ataques pessoais, palavras de baixo calão e perseguições veladas. Criar personagens com a desculpa de que "meu personagem é assim" para perseguir, alfinetar e estragar a jogatina de membros específicos é toxicidade camuflada: a staff pune severamente com banimento. Aplica-se também a transmissões ao vivo e redes sociais.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-rose-950/20 border border-rose-500/40 space-y-2">
+            <div class="flex justify-between items-center">
+              <strong class="text-rose-400 uppercase">Dark RP (Zero Tolerância)</strong>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-rose-500/20 text-rose-300">BAN PERMANENTE</span>
+            </div>
+            <ul class="space-y-1.5 list-disc list-inside">
+              <li><strong>Assédio e Importunação Sexual:</strong> Qualquer ato de natureza sexual não consentida, toques, insinuações ou perseguição erótica contra qualquer personagem.</li>
+              <li><strong>Preconceito Encenado:</strong> Racismo, homofobia, xenofobia ou intolerância encenada sob desculpa de "era meu personagem". É agravante, nunca defesa.</li>
+              <li><strong>Zombar de Modificador de Voz:</strong> Rir, imitar ou acusar o uso de moduladores de voz. A voz pertence ao personagem; ridicularizar isso é considerado preconceito e Dark RP.</li>
+              <li><strong>Suicídio e Automutilação:</strong> Encenar suicídio ou automutilação por qualquer pretexto de roteiro.</li>
+              <li><strong>Tortura e Profanação:</strong> Desmembramento, queimar corpos, arrastar cadáveres ou rituais de humilhação física gratuita (como cortar cabelos à força ou despir a vítima).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. RDM, VDM, METAGAMING & FORÇAR RP -->
+      <article id="combate" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-cyan-500/10 text-cyan-400 rounded-lg">
+            <i data-lucide="crosshair" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">RDM, VDM, Metagaming & Forçar RP</h2>
+            <span class="text-xs text-vanguard-muted">Regras para engajamentos armados, integridade física e uso de informações</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-cyan-400 block uppercase">RDM (Random Deathmatch)</strong>
+            <p>Matar, ferir ou disparar contra outro cidadão sem história, motivação plausível ou contexto prévio no roleplay. Todo confronto com morte exige razão coerente anterior.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-cyan-400 block uppercase">VDM (Vehicle Deathmatch)</strong>
+            <p>Utilizar qualquer veículo terrestre, aéreo ou embarcação náutica como arma de choque para atropelar, arremessar ou abater cidadãos. Veículo é meio de transporte, não míssil de combate.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-cyan-400 block uppercase">Metagaming & "7 Telas"</strong>
+            <p>Utilizar informações obtidas fora do jogo (Discord, transmissões ao vivo, WhatsApp ou prints). Assistir a streams de terceiros para antecipar ações ou descobrir localizações resulta em banimento.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-cyan-400 block uppercase">Forçar RP</strong>
+            <p>Provocar incessantemente com o propósito exclusivo de fabricar um motivo para atirar, impor situações sem dar saída interpretativa ao outro lado, ou insistir em cenas que o interlocutor legitimamente recusou.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. COMBAT-LOG (CL) & PROTOCOLO DE CRASH -->
+      <article id="combatlog" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-yellow-500/10 text-yellow-400 rounded-lg">
+            <i data-lucide="plug-zap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Combat-Log (CL) & Protocolo de Queda</h2>
+            <span class="text-xs text-vanguard-muted">Desconexão in-game, auditoria de logs e protocolo mandatório</span>
+          </div>
+        </div>
+
+        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <li class="flex items-start gap-3">
+            <i data-lucide="chevron-right" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span><strong>Fugir da História pelo Botão de Sair:</strong> Desconectar do servidor para evitar assalto, apreensão policial, perda de armamento ou prisão. Ver uma viatura ou rival se aproximando e dar alt+F4/desconectar configura CL do mesmo jeito.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="chevron-right" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span><strong>Protocolo de Crash Real:</strong> Ocorreu fechamento inesperado do jogo? O jogador é obrigado a notificar imediatamente no canal <code>#crash-report</code> no Discord. <strong>Quem crashou durante ação de tiro não pode retornar para a mesma ação</strong>.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="chevron-right" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span><strong>Crash Algemado ou em Custódia:</strong> Quem crashar detido pela polícia ou algemado por sequestradores é <strong>obrigado a reconectar imediatamente e se entregar para concluir o procedimento</strong>. Não faça isso por ticket; volte in-game. Se a conexão falhar, comprove com vídeo de tela inteira da inicialização falha.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="chevron-right" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span><strong>Sanção de Bens Zerados:</strong> A punição por Combat-Log confirmado acarreta a limpeza total de todos os bens do personagem: dinheiro em mãos e bancário, baús, porta-malas e inventários de residências. Correr para guardar pertences antes do ban não anula a perda.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="chevron-right" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span><strong>Sem Compensação sem Prova:</strong> A administração não restitui itens sem a comprovação em vídeo de que a perda ocorreu por quebra de regras alheia.</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- 9. ABUSO DE BUGS & REVENGE KILL (RK) -->
+      <article id="bugs-rk" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-violet-500/10 text-violet-400 rounded-lg">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Abuso de Bugs & Revenge Kill (RK)</h2>
+            <span class="text-xs text-vanguard-muted">Integridade mecânica e separação de memórias pós-desmaio</span>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-violet-400 uppercase block">Abuso de Bugs e Vulnerabilidades (Grave)</strong>
+            <p>Usar falhas no script para obter dinheiro, atravessar paredes, manipular inventários ou burlar mecânicas. Duplicação de armamentos (dupe) é rastreada pelos seriais do banco de dados e resulta em ban permanente de quem executou e de quem recebeu. Se um ganho financeiro for bom demais para ser verdade econômica, pare e reporte imediatamente via ticket.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-violet-400 uppercase block">Revenge Kill (RK)</strong>
+            <ul class="space-y-1.5 list-disc list-inside">
+              <li>Ao desmaiar e recobrar os sentidos no hospital ou reanimado, o personagem esquece integralmente quem o atacou e as razões da cena.</li>
+              <li>Proibido reviver para se vingar ou ir atrás do algoz, sozinho ou acompanhado.</li>
+              <li>Proibido espalhar o nome do responsável caso tenha recobrado a consciência.</li>
+              <li>Terceiros que presenciaram a cena também estão proibidos de contar à vítima quem a feriu. Reencontros devem ser encarados como histórias inteiramente novas.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. SAFEZONES (ZONAS SEGURAS DESARMADAS) -->
+      <article id="safezones" class="rule-card bg-vanguard-dark/90 border border-emerald-500/30 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Safezones (Zonas de Proteção Absoluta)</h2>
+            <span class="text-xs text-emerald-400">Recintos 100% blindados de ações hostis com desarme mecânico nativo</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-vanguard-card/60 border border-emerald-500/20 text-xs sm:text-sm text-slate-300">
+          <strong class="text-emerald-400 block mb-1">Locais Reconhecidos como Safezones Municipais:</strong>
+          Hospital • Praça Central • Delegacias de Polícia • Concessionária • Mecânicas • Garagens Públicas • Lojas de Roupas
+        </div>
+
+        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <li class="flex items-start gap-3">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Desarme Mecânico Nativo por Script:</strong> O próprio sistema da Cidade Vanguard desativa e bloqueia mecanicamente o saque e porte de armamentos nas Safezones. Qualquer tentativa de burlar esse bloqueio mecânico é infração grave.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Proibição Completa de Ações Hostis:</strong> É estritamente proibido cometer qualquer ato ilegal, furto, assalto, agressão, algemar, sequestrar ou realizar cobranças violentas nestas regiões. Cobranças de dívidas em safezones ocorrem exclusivamente no diálogo pacífico.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Safezone Não é Rota de Fuga:</strong> É proibido correr para dentro de uma Safezone no meio de uma perseguição ou tiroteio para se proteger. Comprovada a fuga pelo comando <code>/denunciar</code> com clipe de HUD ativa, o infrator terá <strong>todo o dinheiro e pertences ZERADOS</strong>.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Disparos Externos & Camperagem:</strong> É proibido atirar do lado de fora em direção a quem está abrigado na Safezone, bem como fazer campana nas saídas aguardando moradores saírem para emboscá-los.</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- 11. REGRAS DE PERSONAGEM & PROTEÇÃO INTEGRAL ÀS CRIANÇAS -->
+      <article id="personagem" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-purple-500/10 text-purple-400 rounded-lg">
+            <i data-lucide="baby" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Personagens & Proteção Integral às Crianças</h2>
+            <span class="text-xs text-vanguard-muted">Parâmetros de identidade e regras rigorosas de RP infantil</span>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-purple-400 uppercase block">Regras Gerais de Personagem</strong>
+            <ul class="space-y-1.5 list-disc list-inside">
+              <li>Proibido utilizar roupas invisíveis ou texturas bugadas.</li>
+              <li>Se iniciar roleplay de mudo, não poderá falar verbalmente até refazer o personagem.</li>
+              <li>Voltar de "E" no hospital durante ação policial ou de terceiros constitui quebra severa de imersão.</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-purple-400 uppercase block">RP Infantil (5 a 17 Anos) — Doadores Aprovados</strong>
+            <p>O RP de criança tem foco em família, desenvolvimento e moral, nunca atalho para o caos. Exige lore aprovada por ticket. Proibido qualquer envolvimento com facções, violência ou crimes. Vestimentas devem ser condizentes com a infância (sem decotes ou sexualização). Proibido trabalhar em bares, boates ou ammunations. Menores de 6 anos devem estar sempre acompanhados de um responsável adulto.</p>
+          </div>
+
+          <!-- O QUE NUNCA SE FAZ COM CRIANÇAS -->
+          <div class="p-5 rounded-xl bg-rose-950/20 border border-rose-500/40 space-y-3">
+            <div class="flex items-center gap-2 text-rose-400">
+              <i data-lucide="shield-alert" class="w-4 h-4"></i>
+              <strong class="font-title uppercase tracking-wider text-xs">🛡️ O Que NUNCA Se Faz Contra Uma Criança (Regra de Ouro)</strong>
+            </div>
+            <ul class="space-y-2 list-disc list-inside text-slate-300">
+              <li><strong>Nenhuma Violência Física:</strong> Proibido bater, atirar, atropelar, roubar ou agredir verbalmente personagens infantis. Contra criança ninguém levanta a mão.</li>
+              <li><strong>Proibido Sequestro:</strong> Jamais sequestrar, amarrar, algemar ou prender uma criança sob nenhuma alegação.</li>
+              <li><strong>Intocáveis (Dark RP):</strong> Qualquer insinuação sexual, tortura ou ameaça grave contra crianças resulta em <strong>BAN PERMANENTE SUMÁRIO</strong>.</li>
+              <li>Crianças não são presas pela polícia (apenas advertência pedagógica com os responsáveis) e seus personagens não sofrem morte/PD sem prévio consentimento e autorização administrativa.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. AMOR À VIDA & PERMADEATH (PD) -->
+      <article id="permadeath" class="rule-card bg-vanguard-dark/90 border border-rose-500/30 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-rose-500/10 text-rose-400 rounded-lg">
+            <i data-lucide="skull" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Amor à Vida & Permadeath (PD)</h2>
+            <span class="text-xs text-rose-400">Valorização da existência do personagem e perda definitiva</span>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div class="p-4 rounded-xl bg-rose-950/20 border border-rose-500/30">
+            <strong class="text-rose-400 block mb-1">PD DO PERSONAGEM:</strong>
+            O bem mais valioso é a vida do seu personagem. Se você demonstrar desprezo absoluto pela sua integridade física ou agir de forma kamikaze, a staff aprovará o seu <strong>Permadeath (Morte Definitiva)</strong>. Criar um novo personagem com o mesmo parentesco, memórias ou vínculos do anterior resulta em <strong>Banimento Indeterminado</strong>.
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+              <span class="font-bold text-amber-400 block uppercase">Motivos que Geram PD Direto</span>
+              <ul class="space-y-1.5 list-disc list-inside">
+                <li>Debochar de sequestradores armados em vez de colaborar.</li>
+                <li>Tentar ser herói e trocar tiros sozinho contra clara maioria armada.</li>
+                <li>Utilizar rádio ou celular na frente de captores sem consentimento.</li>
+                <li>Perder a perseguição contra 5 viaturas apontando armas e ainda abrir fogo.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+              <span class="font-bold text-sky-400 block uppercase">Amor à Vida Vale para Todos</span>
+              <p>Oficiais de polícia e bandidos em ação ofensiva também estão sujeitos ao amor à vida. Incursões suicidas sem avaliação de risco tático são punidas. Reagir a um assalto é permitido, mas o cidadão assume o risco: se morrer, o desfecho da ação não poderá ser contestado.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13. REGRAS GERAIS DE AÇÕES, SEQUESTROS & GUERRAS -->
+      <article id="acoes" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-orange-500/10 text-orange-400 rounded-lg">
+            <i data-lucide="swords" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Ações, Sequestros, Furtos & Guerras</h2>
+            <span class="text-xs text-vanguard-muted">Dinâmica de assaltos, reféns e combates entre facções</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-center text-xs">
+          <div class="p-3 rounded-xl bg-vanguard-card/60 border border-vanguard-border/40">
+            <span class="text-vanguard-muted block uppercase text-[10px]">Região Sul</span>
+            <span class="font-bold text-white">Assaltos a Moradores Proibidos</span>
+          </div>
+          <div class="p-3 rounded-xl bg-vanguard-card/60 border border-vanguard-border/40">
+            <span class="text-vanguard-muted block uppercase text-[10px]">Assalto no Norte</span>
+            <span class="font-bold text-vanguard-accent">00:00 às 06:00</span>
+          </div>
+          <div class="p-3 rounded-xl bg-vanguard-card/60 border border-vanguard-border/40">
+            <span class="text-vanguard-muted block uppercase text-[10px]">Ações de Rua (Norte)</span>
+            <span class="font-bold text-emerald-400">Liberadas 24 Horas</span>
+          </div>
+        </div>
+
+        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-orange-400 shrink-0 mt-0.5"></i><span><strong>Regra do Capotamento:</strong> Se o veículo capotar ou se cair de moto em perseguição, você está ferido — renda-se imediatamente sem resistência armada.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-orange-400 shrink-0 mt-0.5"></i><span><strong>Diretrizes de Sequestro:</strong> Mínimo de 3 sequestradores armados. Proibido sequestrar de moto. Máximo de 2 horas de sequestro (teto de 10 min consecutivos com capuz). Resgate máximo de <strong>R$ 50.000</strong> e/ou informações. Proibido executar reféns colaborativos.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-orange-400 shrink-0 mt-0.5"></i><span><strong>Proibições em Ações:</strong> Proibido capacetes, uso de blindados em ações de rua, atirar de costas em veículos sem vidros/com aerofólios e continuar fuga com pneus furados.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-orange-400 shrink-0 mt-0.5"></i><span><strong>Bait Proibido:</strong> Proibido acionar serviços públicos para emboscar ou assaltar, e proibido efetuar disparos exclusivamente para atrair a polícia.</span></li>
+          <li class="flex items-start gap-3"><i data-lucide="chevron-right" class="w-4 h-4 text-orange-400 shrink-0 mt-0.5"></i><span><strong>Guerras Oficiais:</strong> Devem ser declaradas formalmente entre líderes com enredo estruturado. Ocorrem exclusivamente na <strong>Ilha</strong>. Limite máximo de 30 integrantes por lado. Encerrada a guerra, hostilidades e farpas devem cessar de imediato.</span></li>
+        </ul>
+      </article>
+
+      <!-- 14. TABELA OFICIAL DE LIMITES POR AÇÃO -->
+      <article id="tabelas" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-blue-500/10 text-blue-400 rounded-lg">
+            <i data-lucide="table" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Tabela Oficial de Limites de Ações</h2>
+            <span class="text-xs text-vanguard-muted">Quantitativos, armamentos, negociação e regras táticas de posicionamento</span>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-vanguard-card/40 border border-blue-500/30 text-xs text-slate-300">
+          <strong class="text-vanguard-accent">Teto Semanal por Organização:</strong> Joalheria: 2x • Fleeca: 4x • Paleto: 1x • Banco Central: 1x • Nióbio: 1x
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-vanguard-border/60">
+          <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+            <thead class="bg-vanguard-card/80 text-[11px] font-title font-bold text-vanguard-accent uppercase tracking-wider border-b border-vanguard-border">
+              <tr>
+                <th class="p-3.5">Ação / Local</th>
+                <th class="p-3.5">Bandidos</th>
+                <th class="p-3.5">Polícia</th>
+                <th class="p-3.5">Armamento</th>
+                <th class="p-3.5">Negociação</th>
+                <th class="p-3.5">Refém</th>
+                <th class="p-3.5">Observações Táticas</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-vanguard-border/40 font-normal">
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Registradora & ATM</td>
+                <td class="p-3.5">1 Carro cheio</td>
+                <td class="p-3.5">Máx. 3 VTRs</td>
+                <td class="p-3.5 text-rose-400">Proibido armas</td>
+                <td class="p-3.5 text-slate-400">Inexistente</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-slate-400">Apenas fuga de veículo</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Barbearia</td>
+                <td class="p-3.5">4 (todos dentro)</td>
+                <td class="p-3.5">4 Oficiais</td>
+                <td class="p-3.5 text-amber-400">Apenas Branca</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-slate-400">—</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Loja de Tatuagens</td>
+                <td class="p-3.5">2 (todos dentro)</td>
+                <td class="p-3.5">2 Oficiais</td>
+                <td class="p-3.5 text-amber-400">Apenas Branca</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-slate-400">—</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Ammunition</td>
+                <td class="p-3.5">Obrigatório 2</td>
+                <td class="p-3.5">Máx. 3 Oficiais</td>
+                <td class="p-3.5">Todos de Pistola</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-xs text-sky-300">Com estande: 0 fora / Sem estande: 1 fora</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Loja Departamentos</td>
+                <td class="p-3.5">4 (máx. 2 fora)</td>
+                <td class="p-3.5">Máx. 5 Oficiais</td>
+                <td class="p-3.5">Todos de Pistola</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400 font-semibold">Opcional</td>
+                <td class="p-3.5 text-slate-400">1 carro ou 2 motos</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Joalheria</td>
+                <td class="p-3.5">7 (máx. 3 fora)</td>
+                <td class="p-3.5">Máx. 9 Oficiais</td>
+                <td class="p-3.5">Mín. Submetralhadora</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400 font-semibold">Opcional (máx. 3)</td>
+                <td class="p-3.5 text-rose-400 text-xs">Proibido metrô e interior prefeitura</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30 bg-blue-950/20">
+                <td class="p-3.5 font-semibold text-white">Banco Fleeca (Padrão)</td>
+                <td class="p-3.5">6 a 8 (mín. 3 dentro)</td>
+                <td class="p-3.5">Máx. 9 Oficiais</td>
+                <td class="p-3.5">Mín. Sub + 4 Rifles</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400 font-semibold">Opcional (máx. 5)</td>
+                <td class="p-3.5 text-rose-400 text-xs">Proibido usar metrô</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Fleeca Life Invader</td>
+                <td class="p-3.5">Regra Padrão</td>
+                <td class="p-3.5">Regra Padrão</td>
+                <td class="p-3.5 text-cyan-300">Mínimo 2 Fuzis</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400">Conforme Fleeca</td>
+                <td class="p-3.5 text-xs text-slate-300">Apenas prédios acessíveis por escada</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Fleeca Praia</td>
+                <td class="p-3.5">Regra Padrão</td>
+                <td class="p-3.5">Regra Padrão</td>
+                <td class="p-3.5">Somente Submetralhadora</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400">Conforme Fleeca</td>
+                <td class="p-3.5 text-xs text-slate-300">Teto / Chão</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Fleeca Shopping</td>
+                <td class="p-3.5">Regra Padrão</td>
+                <td class="p-3.5">Regra Padrão</td>
+                <td class="p-3.5 text-cyan-300">Mínimo 2 Fuzis</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400">Conforme Fleeca</td>
+                <td class="p-3.5 text-xs text-slate-300">C/ atirador: máx 4 prédios / S/ atirador: máx 3</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Banco Paleto</td>
+                <td class="p-3.5">Obrigatório 10</td>
+                <td class="p-3.5">Máx. 12 Oficiais</td>
+                <td class="p-3.5 text-cyan-300">Todos de Rifle</td>
+                <td class="p-3.5 text-rose-400 font-medium">Confronto Direto</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-amber-300 text-xs">Máx. 6 bandidos no Galinheiro</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30 bg-blue-950/20">
+                <td class="p-3.5 font-semibold text-white">Banco Central (C/ Refém)</td>
+                <td class="p-3.5">Obrigatório 10</td>
+                <td class="p-3.5">Máx. 12 Oficiais</td>
+                <td class="p-3.5 text-cyan-300">Todos de Rifle</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400 font-semibold">Permitido (máx. 4)</td>
+                <td class="p-3.5 text-xs text-slate-300">Máx. 3 em prédios ou 5 chão. Sem fora se for fuga.</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Banco Central (S/ Refém)</td>
+                <td class="p-3.5">Obrigatório 10</td>
+                <td class="p-3.5">Máx. 12 Oficiais</td>
+                <td class="p-3.5 text-cyan-300">Todos de Rifle</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-xs text-slate-300">Máx. 3 em prédios ou 5 no chão</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30 bg-cyan-950/20">
+                <td class="p-3.5 font-semibold text-white">Nióbio (Humane Labs)</td>
+                <td class="p-3.5">Obrigatório 12</td>
+                <td class="p-3.5">Máx. 17 Oficiais</td>
+                <td class="p-3.5 text-cyan-300">Todos de Rifle</td>
+                <td class="p-3.5 text-rose-400 font-medium">Confronto Direto</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-amber-300 text-xs font-semibold">⚠️ Limite máx. 4 bandidos no corredor final</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Porto</td>
+                <td class="p-3.5">Obrigatório 10</td>
+                <td class="p-3.5">Máx. 12 Oficiais</td>
+                <td class="p-3.5 text-cyan-300">Todos de Rifle</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400 font-semibold">Permitido (máx. 3)</td>
+                <td class="p-3.5 text-slate-400">—</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Iate</td>
+                <td class="p-3.5">Obrigatório 6</td>
+                <td class="p-3.5">Máx. 8 Oficiais</td>
+                <td class="p-3.5 text-cyan-300">Todos de Rifle</td>
+                <td class="p-3.5 text-emerald-400">Obrigatória</td>
+                <td class="p-3.5 text-sky-400 font-semibold">Permitido (máx. 3)</td>
+                <td class="p-3.5 text-rose-400 text-xs font-semibold">Proibido utilização da água</td>
+              </tr>
+              <tr class="hover:bg-vanguard-card/30">
+                <td class="p-3.5 font-semibold text-white">Roubo de Sucata</td>
+                <td class="p-3.5">Máx. 6</td>
+                <td class="p-3.5">Máx. 8 Oficiais</td>
+                <td class="p-3.5">Obrigatório 6 Pistolas</td>
+                <td class="p-3.5 text-rose-400 font-medium">Confronto Direto</td>
+                <td class="p-3.5 text-rose-400 font-semibold">Proibido</td>
+                <td class="p-3.5 text-slate-400">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- 15. DIRETRIZES DE FACÇÕES, INVASÕES & HIDRA COINS -->
+      <article id="faccoes" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-red-500/10 text-red-400 rounded-lg">
+            <i data-lucide="flame" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Regras de Facções, Invasões & Hidra Coins</h2>
+            <span class="text-xs text-vanguard-muted">Regulamento da Cúpula para o crime organizado</span>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <div class="p-4 rounded-xl bg-orange-950/20 border border-orange-500/30">
+            <strong>Deveres com a Cúpula:</strong> A quebra de regras gera advertência de facção. Com <strong>3 advertências</strong> a liderança é removida e repassada. As ordens da cúpula são soberanas: desrespeito acarreta <strong>wipe de personagem</strong>. Multas aplicadas devem ser pagas em até <strong>7 dias</strong> sob pena de wipe da organização. Meta obrigatória de 5 membros online durante 3 dias (entre 20h30 e 22h30).
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+              <strong class="text-orange-400 uppercase block">Invasão entre Facções</strong>
+              <ul class="space-y-1 list-disc list-inside">
+                <li>Deve ser marcada com <strong>24h de antecedência</strong> e autorizada via ticket.</li>
+                <li><strong>Invasor vence:</strong> 50% do baú + invadida desativada 24h e armazém wipado.</li>
+                <li><strong>Invasor perde:</strong> Multa de R$ 200.000 + armazém wipado.</li>
+                <li><strong>W.O.:</strong> Falta da invadida = perde 100% baú + 48h off + armazém wipado. Falta invasor = R$ 200k multa + armazém wipado. Cooldown: 7 dias.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+              <strong class="text-orange-400 uppercase block">Dominação Territorial</strong>
+              <ul class="space-y-1 list-disc list-inside">
+                <li>Proibido o uso de qualquer veículo na área de dominação.</li>
+                <li>Matar fora da zona demarcada = <strong>RDM</strong>. Proibido camperar fora.</li>
+                <li>Se morrer, proibido retornar até o próximo horário de dominação.</li>
+                <li>Médicos terminantemente proibidos no perímetro de dominação.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- PACIFICAÇÃO E INCURSÃO -->
+          <div class="p-4 rounded-xl bg-vanguard-card/50 border border-blue-500/40 space-y-2">
+            <strong class="text-sky-400 block uppercase">Pacificação (PC) vs Incursão (PM)</strong>
+            <p><strong>Pacificação (Polícia Civil):</strong> Realizada mediante mandado de busca fundamentado em investigação aprovada por juiz. Contingente: Bandidos (6 a 20) | Polícia (10 a 25). Vitória policial = <strong>100% do conteúdo, baú, armazém e veículos apreendidos</strong> + facção desativada por 24h.</p>
+            <p><strong>Incursão (Polícia Militar):</strong> Ocorre em flagrante por fuga para dentro do QG, disparos efetuados de dentro para fora ou sequestro mantido no local. Contingente: Bandidos (6 a 20) | Polícia (10 a 25). Vitória policial = <strong>50% do baú, armazém e veículos apreendidos</strong> + 24h desativada.</p>
+          </div>
+
+          <!-- HIDRA COINS COMPLETO -->
+          <div class="space-y-2.5 pt-2">
+            <span class="text-xs font-title font-bold text-white uppercase tracking-wider block">Tabela Oficial • Hidra Coins</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div class="p-3 bg-vanguard-card/40 rounded-xl border border-vanguard-border/40 flex justify-between items-center text-xs">
+                <span>Remover R$ 200.000 de multa</span>
+                <span class="font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">5 Coins</span>
+              </div>
+              <div class="p-3 bg-vanguard-card/40 rounded-xl border border-vanguard-border/40 flex justify-between items-center text-xs">
+                <span>Carregamento de armas</span>
+                <span class="font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">10 Coins</span>
+              </div>
+              <div class="p-3 bg-vanguard-card/40 rounded-xl border border-vanguard-border/40 flex justify-between items-center text-xs">
+                <span>Remover 1 advertência</span>
+                <span class="font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">15 Coins</span>
+              </div>
+              <div class="p-3 bg-vanguard-card/40 rounded-xl border border-vanguard-border/40 flex justify-between items-center text-xs">
+                <span>Zerar ações semanais</span>
+                <span class="font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">15 Coins</span>
+              </div>
+              <div class="p-3 bg-vanguard-card/40 rounded-xl border border-vanguard-border/40 flex justify-between items-center text-xs sm:col-span-2 lg:col-span-2">
+                <span>Carregamento de armas avançado</span>
+                <span class="font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">20 Coins</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 16. DEPARTAMENTOS PÚBLICOS (POLÍCIA, HOSPITAL, MECÂNICA & BLITZ) -->
+      <article id="departamentos" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-4">
+          <div class="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg">
+            <i data-lucide="building-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Corporações, Investigação & Serviços Públicos</h2>
+            <span class="text-xs text-vanguard-muted">Regras da Polícia Militar, Investigativa, SAMU, Mecânicas e Blitz</span>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <!-- POLICIA COMPLETA -->
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2.5">
+            <strong class="text-sky-400 uppercase block font-title">Polícia Militar & Investigativa</strong>
+            <ul class="space-y-1.5 list-disc list-inside">
+              <li>Extremamente proibida qualquer corrupção policial ou venda de armamento/equipamento. Caixa 2 resulta em banimento do servidor.</li>
+              <li>Proibido patrulhar descaracterizado (PM) e proibido patrulhar sozinho.</li>
+              <li>Proibido abordar em safezone ou ficar de campana esperando o cidadão sair.</li>
+              <li>Obrigatório fechar perímetro em qualquer caso de tiroteio e ler os direitos ao efetuar a prisão.</li>
+              <li><strong>Investigação Policial:</strong> Mínimo de 10 policiais setados; duração mínima de <strong>12 dias</strong>. Proibido clipes como prova (obrigatório 3 arquivos in-game: foto, áudio ou vídeo). Infiltrado em cooldown de 30 dias. Dossiê deve conter: como conheceu a org, recrutador, hierarquia, segmento, patrimônio, identificação dos líderes com fotos/passaportes, localização dos baús e identificação de 2 veículos de cada líder.</li>
+            </ul>
+          </div>
+
+          <!-- BLITZ POLICIAL -->
+          <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-border/50 space-y-2">
+            <strong class="text-amber-400 uppercase block">Regras Oficiais de Blitz</strong>
+            <p>Deve ser autorizada pela prefeitura e anunciada com <strong>10 minutos de antecedência</strong>. Ataques armados contra blitz são proibidos (considerado RDM). Presença obrigatória de no mínimo 1 médico. Proibido blitz em safezones ou num raio menor que 500 metros de áreas vermelhas. Não apresentar CNH acarreta apreensão do veículo. Furar blitz libera Código 3 imediato.</p>
+          </div>
+
+          <!-- HOSPITAL & MECANICA -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-vanguard-card/40 border border-vanguard-border/50 space-y-2">
+              <strong class="text-rose-400 uppercase block">Hospital (SAMU)</strong>
+              <ul class="space-y-1.5 list-disc list-inside">
+                <li>Proibido som alto e entrada mascarado ou semi-nu.</li>
+                <li>Proibido reanimar a equipe perdedora em tiroteios de ações.</li>
+                <li>Proibido negar atendimento a qualquer cidadão ou ignorar chamados.</li>
+                <li>Permitido corrupção (conforme diretrizes médicas).</li>
+                <li>Obrigatório passar com cirurgião plástico antes de alterar aparência.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-vanguard-card/40 border border-vanguard-border/50 space-y-2">
+              <strong class="text-amber-400 uppercase block">Mecânica</strong>
+              <ul class="space-y-1.5 list-disc list-inside">
+                <li>Obrigatório uso ininterrupto de uniforme durante o expediente.</li>
+                <li>Proibido som alto ou prática de crimes nas dependências da mecânica.</li>
+                <li>Proibido veículos de serviço fora de turno.</li>
+                <li>Proibido qualquer ato de corrupção ou recusa de atendimento.</li>
+                <li>Obrigatório cumprir com rigor as tabelas oficiais de preços.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 17. INTEGRIDADE TÉCNICA (RESHADE & MODS) -->
+      <article id="reshade" class="rule-card bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-3">
+          <div class="p-2 bg-teal-500/10 text-teal-400 rounded-lg">
+            <i data-lucide="sliders" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Integridade Técnica, ReShade & Arquivos</h2>
+            <span class="text-xs text-vanguard-muted">Garantia de igualdade visual e proibição de clientes modificados</span>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          O jogo deve rodar exatamente sob as mesmas condições climáticas e visuais para todos os jogadores. É <strong>terminantemente proibido o uso de ReShade, ENB ou qualquer injetor gráfico externo</strong> com finalidade de clarear noites, remover neblina ou destacar silhuetas de inimigos em tiroteios. Modificações na pasta Citizen ou RPFs que removam vegetação, props ou estruturas são tratadas sumariamente como trapaça (cheating) com banimento permanente. Ajustes permitidos limitam-se ao menu oficial de configurações do jogo e ao painel nativo de sua placa de vídeo.
+        </p>
+      </article>
+
+      <!-- 18. POLÍTICA DE DOAÇÕES & APOIO (VIP) -->
+      <article id="doacoes" class="rule-card bg-vanguard-dark/90 border border-amber-500/30 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xl">
+        <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-3">
+          <div class="p-2 bg-amber-500/10 text-amber-400 rounded-lg">
+            <i data-lucide="coins" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide">Política Oficial de Doações (Apoiadores VIP)</h2>
+            <span class="text-xs text-amber-400">Transparência, sustentabilidade e termos de apoio financeiro</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300">
+          <div class="p-4 rounded-xl bg-vanguard-card/40 border border-vanguard-border/40 space-y-2">
+            <strong class="text-amber-400 block uppercase">Natureza Voluntária & Gratuidade</strong>
+            <p>Ninguém é obrigado a doar. A Cidade Vanguard é 100% gratuita para jogar e oferece toda a sua estrutura narrativa para qualquer habitante sem exigência de gastos. A doação é uma escolha voluntária de quem deseja apoiar a manutenção dos servidores e o desenvolvimento de novos sistemas.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-vanguard-card/40 border border-vanguard-border/40 space-y-2">
+            <strong class="text-amber-400 block uppercase">Sem Reembolso & Sem Imunidade</strong>
+            <p>Doações são imediatamente aplicadas nos custos operacionais da infraestrutura e não são reembolsáveis em nenhuma hipótese. Pacotes VIP são fixos, não sendo permitidas trocas posteriores de itens. Doadores não possuem imunidade disciplinar e respondem às mesmas leis que qualquer cidadão.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ OFICIAL -->
+  <footer class="mt-20 border-t border-vanguard-border/50 bg-vanguard-darkest/95 py-10 text-center text-xs text-vanguard-muted">
+    <div class="max-w-7xl mx-auto px-4 space-y-3">
+      <div class="flex items-center justify-center gap-2">
+        <span class="font-title font-bold text-sm text-white tracking-widest">CIDADE VANGUARD</span>
+        <span class="text-vanguard-accent">•</span>
+        <span>Progresso e Futuro</span>
+      </div>
+      <p>Gabinete Executivo Municipal • Diário Oficial da Cidade Vanguard • Vigência 2026</p>
+      <p class="text-[11px] text-slate-500">Desenvolvido com padrões de alta fidelidade para consulta rápida da comunidade e da administração.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DE FILTRAGEM INSTANTÂNEA E ÍCONES -->
+  <script>
+    // Inicialização dos ícones Lucide
+    lucide.createIcons();
+
+    // Sistema de busca em tempo real
+    const searchInput = document.getElementById('searchRule');
+    const ruleCards = document.querySelectorAll('.rule-card');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+
+      ruleCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
