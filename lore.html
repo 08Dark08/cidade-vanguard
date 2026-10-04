@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade Vanguard — Origens & Crônicas Municipais</title>
+  
+  <!-- Fontes Oficiais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=Cinzel:wght@600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vanguard: {
+              darkest: '#030712',
+              dark: '#081325',
+              card: '#0c1d36',
+              border: '#1b3558',
+              primary: '#2563eb',
+              accent: '#38bdf8',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            title: ['Orbitron', 'sans-serif'],
+            lore: ['Cinzel', 'serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb { background: #1b3558; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+    .bg-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12) 0%, rgba(3, 7, 18, 0) 70%);
+    }
+  </style>
+</head>
+
+<body class="bg-vanguard-darkest text-slate-200 font-sans min-h-screen bg-glow antialiased selection:bg-vanguard-accent selection:text-vanguard-darkest">
+
+  <!-- NAVBAR PADRONIZADA COM LOGO E SVG DISCORD -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-vanguard-darkest/90 border-b border-vanguard-border/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-vanguard-primary to-vanguard-accent rounded-xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+            <div class="relative w-11 h-11 rounded-xl bg-vanguard-card border border-vanguard-accent/40 flex items-center justify-center overflow-hidden shadow-lg">
+              <img src="logo.png" alt="Cidade Vanguard" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div>
+            <span class="font-title font-bold text-lg text-white tracking-wider">CIDADE VANGUARD</span>
+            <span class="text-[11px] text-vanguard-accent block -mt-1 font-medium tracking-widest uppercase">Histórico Municipal Oficial</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="regras.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="book-open" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Regras</span>
+        </a>
+
+        <a href="penal.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="scale" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Código Penal</span>
+        </a>
+
+        <a href="corporacoes.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="building-2" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Corporações</span>
+        </a>
+
+        <a href="faq.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Dúvidas</span>
+        </a>
+
+        <!-- BOTÃO COM SVG OFICIAL DO DISCORD -->
+        <a href="https://discord.gg/cidade-vanguard" target="_blank" class="flex items-center gap-2 text-xs font-semibold bg-[#5865F2] hover:bg-[#4752c4] text-white px-3.5 py-2 rounded-lg shadow-md shadow-[#5865F2]/25 transition-all">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 127.14 96.36">
+            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.91,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,45.91,96.12,53,91.08,65.69,84.69,65.69Z"/>
+          </svg>
+          <span class="hidden sm:inline">Discord</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO DA LORE -->
+  <section class="relative pt-12 pb-8 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-vanguard-accent/30 bg-vanguard-card/60 text-vanguard-accent text-xs font-mono mb-4 uppercase tracking-widest">
+      <i data-lucide="scroll" class="w-3.5 h-3.5"></i> Arquivos Históricos do Município
+    </div>
+    
+    <h1 class="text-3xl sm:text-5xl font-title font-black text-white tracking-tight mb-4 uppercase">
+      A CRÔNICA DE <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-vanguard-accent via-blue-400 to-vanguard-primary">VANGUARD</span>
+    </h1>
+    
+    <p class="text-vanguard-muted text-sm sm:text-base max-w-2xl mx-auto leading-relaxed italic font-serif">
+      "Uma cidade não é erguida sobre pedras e concreto, mas sim sobre as vontades inquebrantáveis dos homens que decidiram não recuar."
+    </p>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL DA HISTÓRIA -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+    <!-- CAPÍTULO 1: O PACTO DE FUNDAÇÃO -->
+    <article class="bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden space-y-6">
+      <div class="flex items-center justify-between border-b border-vanguard-border/70 pb-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl font-title font-bold text-vanguard-accent">01</span>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide uppercase">O Berço da Vanguarda</h2>
+            <span class="text-xs text-vanguard-muted font-mono">1982 — O Sonho Corporativo do Sul</span>
+          </div>
+        </div>
+        <i data-lucide="compass" class="w-6 h-6 text-vanguard-accent opacity-40"></i>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+        <p>
+          No início da década de 1980, onde hoje repousam os imponentes espigões espelhados da metrópole, existia apenas um porto de águas profundas esquecido pelas rotas comerciais da costa. Foi um consórcio de investidores visionários e veteranos de engenharia civil que batizou a região de <strong class="text-white">Vanguard</strong> — a força de choque que lideraria a modernização industrial da região.
+        </p>
+        <p>
+          A proposta original era audaciosa: criar uma cidade-modelo sustentada pela eficiência da logística portuária, liberdade empresarial irrestrita e um corpo de ordem pública exemplar. Em poucos anos, bancos internacionais, as primeiras grandes concessionárias e hospitais de tecnologia de ponta foram erguidos, atraindo sonhadores, empreendedores e famílias inteiras em busca de estabilidade.
+        </p>
+      </div>
+    </article>
+
+    <!-- CAPÍTULO 2: A DESCOBERTA E A GRANDE FRATURA -->
+    <article class="bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden space-y-6">
+      <div class="flex items-center justify-between border-b border-vanguard-border/70 pb-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl font-title font-bold text-amber-400">02</span>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide uppercase">A Febre do Nióbio & A Divisão Norte-Sul</h2>
+            <span class="text-xs text-vanguard-muted font-mono">1998–2010 — A Riqueza que Rasgou o Mapa</span>
+          </div>
+        </div>
+        <i data-lucide="pickaxe" class="w-6 h-6 text-amber-400 opacity-40"></i>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+        <p>
+          A aparente tranquilidade metropolitana ruiu com a descoberta de ricas reservas minerais subterrâneas nos arredores das montanhas do Norte e do complexo de <em>Humane Labs</em>: o <strong>Nióbio</strong> e ligas raras de interesse militar. O fluxo vertiginoso de capitais acelerou o crescimento, mas gerou um abismo social incontornável.
+        </p>
+        <p>
+          Enquanto a elite financeira blindava a <strong>Região Sul</strong> com regulamentações restritas, safezones municipais e patrulhas policiais permanentes, a <strong>Região Norte</strong> foi deixada ao abandono estatal, transformando-se num caldeirão de refinarias, armazéns logísticos e galpões clandestinos. A lei lá já não era mais a mesma: o vácuo de autoridade deu origem aos primeiros grandes sindicatos criminosos e facções operacionais.
+        </p>
+      </div>
+    </article>
+
+    <!-- CAPÍTULO 3: A CÚPULA E A LEI DO SUBMUNDO -->
+    <article class="bg-vanguard-dark/90 border border-vanguard-border rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden space-y-6">
+      <div class="flex items-center justify-between border-b border-vanguard-border/70 pb-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl font-title font-bold text-rose-400">03</span>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide uppercase">A Ordem nas Sombras: A Cúpula</h2>
+            <span class="text-xs text-vanguard-muted font-mono">2018–2024 — A Criação do Código Ilegal</span>
+          </div>
+        </div>
+        <i data-lucide="crown" class="w-6 h-6 text-rose-400 opacity-40"></i>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+        <p>
+          Após anos de conflitos sangrentos e desordenados que ameaçavam sufocar os próprios lucros do contrabando e do tráfico, os chefes das maiores organizações se reuniram em solo neutro para estabelecer um pacto de honra e sobrevivência. Nascia a <strong class="text-white">Cúpula da Vanguard</strong>.
+        </p>
+        <p>
+          Ficaram estipuladas regras implacáveis: o submundo não toleraria anarquia cega. Foram criadas as diretrizes de invasões territoriais com aviso prévio de 24 horas, o respeito às cores e uniformes de cada quadrilha, a moeda interna (<em>Hidra Coins</em>) e o banimento definitivo de traidores e daqueles que quebrassem a sagrada lei do amor à própria vida.
+        </p>
+      </div>
+    </article>
+
+    <!-- CAPÍTULO 4: A VANGUARD DE HOJE (2026) -->
+    <article class="bg-vanguard-dark/90 border border-vanguard-primary/50 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden space-y-6 bg-gradient-to-b from-vanguard-dark to-vanguard-darkest">
+      <div class="flex items-center justify-between border-b border-vanguard-border/70 pb-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl font-title font-bold text-emerald-400">04</span>
+          <div>
+            <h2 class="text-lg font-title font-bold text-white tracking-wide uppercase">O Presente: O Equilíbrio da Navalha</h2>
+            <span class="text-xs text-vanguard-accent font-mono">2026 — O Seu Papel na Metrópole</span>
+          </div>
+        </div>
+        <i data-lucide="flag" class="w-6 h-6 text-emerald-400 opacity-40"></i>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+        <p>
+          Hoje, a <strong>Cidade Vanguard</strong> respira um equilíbrio tenso e fascinante. Pela manhã, o Gabinete Executivo promulga leis no Diário Oficial, as viaturas da Polícia Militar patrulham os distritos comerciais, e a sirene do SAMU rasga a avenida principal para resgatar vidas que valem ouro.
+        </p>
+        <p>
+          Ao cair da noite, quando as luzes dos arranha-céus refletem no asfalto molhado, as rotas de farm esquentam e as facções disputam cada carregamento sob as regras estritas da Cúpula. Não há heróis perfeitos nem vilões sem propósito: há apenas cidadãos, profissionais e sobreviventes moldando o destino desta terra.
+        </p>
+        
+        <!-- Bloco de citação final -->
+        <div class="p-4 rounded-xl bg-vanguard-card/60 border border-vanguard-accent/30 text-center space-y-2 mt-6">
+          <p class="font-title font-bold text-sm text-white tracking-wider uppercase">
+            A cidade está de portas abertas.
+          </p>
+          <p class="text-xs text-vanguard-muted">
+            Você será a lei que protege o inocente, o magnata que comanda as finanças ou a lenda que domina as ruas? A decisão é sua.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- BOTÕES DE ENCAMINHAMENTO -->
+    <div class="flex flex-wrap justify-center gap-4 pt-6">
+      <a href="regras.html" class="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider shadow-lg shadow-vanguard-primary/40 border border-blue-400/50 transition-all">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Conhecer as Leis da Cidade</span>
+      </a>
+      <a href="penal.html" class="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-vanguard-card hover:bg-vanguard-border text-slate-200 hover:text-white font-title font-semibold text-xs uppercase tracking-wider border border-vanguard-border transition-all">
+        <i data-lucide="scale" class="w-4 h-4 text-vanguard-accent"></i>
+        <span>Consultar Código Penal</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="mt-16 border-t border-vanguard-border/50 bg-vanguard-darkest/95 py-10 text-center text-xs text-vanguard-muted">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-title font-bold text-white tracking-wider">CIDADE VANGUARD • HISTÓRIA & TRADIÇÃO</p>
+      <p>Gabinete Executivo Municipal • Todos os direitos reservados © 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>

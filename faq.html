@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade Vanguard — Central de Dúvidas Frequentes (FAQ)</title>
+  
+  <!-- Fontes Oficiais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vanguard: {
+              darkest: '#030712',
+              dark: '#081325',
+              card: '#0c1d36',
+              border: '#1b3558',
+              primary: '#2563eb',
+              accent: '#38bdf8',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            title: ['Orbitron', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb { background: #1b3558; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+    .bg-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12) 0%, rgba(3, 7, 18, 0) 70%);
+    }
+  </style>
+</head>
+
+<body class="bg-vanguard-darkest text-slate-200 font-sans min-h-screen bg-glow antialiased selection:bg-vanguard-accent selection:text-vanguard-darkest">
+
+  <!-- NAVBAR PADRONIZADA -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-vanguard-darkest/90 border-b border-vanguard-border/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-vanguard-primary to-vanguard-accent rounded-xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+            <div class="relative w-11 h-11 rounded-xl bg-vanguard-card border border-vanguard-accent/40 flex items-center justify-center overflow-hidden shadow-lg">
+              <img src="logo.png" alt="Cidade Vanguard" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div>
+            <span class="font-title font-bold text-lg text-white tracking-wider">CIDADE VANGUARD</span>
+            <span class="text-[11px] text-vanguard-accent block -mt-1 font-medium tracking-widest uppercase">Central de Ajuda • FAQ 2026</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="regras.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="book-open" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Regras</span>
+        </a>
+
+        <a href="penal.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="scale" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Código Penal</span>
+        </a>
+
+        <a href="corporacoes.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="building-2" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Corporações</span>
+        </a>
+
+        <!-- BOTÃO COM SVG OFICIAL DO DISCORD -->
+        <a href="https://discord.gg/FyrDyFcNqF" target="_blank" class="flex items-center gap-2 text-xs font-semibold bg-[#5865F2] hover:bg-[#4752c4] text-white px-3.5 py-2 rounded-lg shadow-md shadow-[#5865F2]/25 transition-all">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 127.14 96.36">
+            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.91,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,45.91,96.12,53,91.08,65.69,84.69,65.69Z"/>
+          </svg>
+          <span class="hidden sm:inline">Discord</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative pt-12 pb-6 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-vanguard-accent/30 bg-vanguard-card/60 text-vanguard-accent text-xs font-mono mb-4 uppercase tracking-widest">
+      <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Respostas Imediatas para Cidadãos
+    </div>
+    
+    <h1 class="text-3xl sm:text-5xl font-title font-black text-white tracking-tight mb-4 uppercase">
+      CENTRAL DE <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-vanguard-accent via-blue-400 to-vanguard-primary">DÚVIDAS FREQUENTES</span>
+    </h1>
+    
+    <p class="text-vanguard-muted text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mb-6">
+      Encontre respostas rápidas para as principais dúvidas sobre conduta, mecânicas do servidor, regras de ação e suporte administrativo.
+    </p>
+
+    <!-- BARRA DE BUSCA EM TEMPO REAL -->
+    <div class="relative max-w-xl mx-auto mb-6">
+      <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-vanguard-muted"></i>
+      <input 
+        type="text" 
+        id="searchFaq" 
+        placeholder="Pesquise por uma dúvida (ex: crash, safezone, sequestro, clipe, fiança)..." 
+        class="w-full pl-12 pr-4 py-3.5 bg-vanguard-dark/90 border border-vanguard-border focus:border-vanguard-accent focus:ring-2 focus:ring-vanguard-accent/20 rounded-xl text-sm text-white placeholder-vanguard-muted outline-none transition-all shadow-xl shadow-black/40"
+      >
+    </div>
+
+    <!-- FILTROS POR CATEGORIA (PILLS) -->
+    <div class="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto" id="faqFilters">
+      <button class="faq-filter active text-xs px-3.5 py-1.5 rounded-lg border border-vanguard-accent bg-vanguard-accent/10 text-vanguard-accent font-semibold transition-all" data-cat="all">Todas</button>
+      <button class="faq-filter text-xs px-3.5 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-cat="inicio">Início & Conexão</button>
+      <button class="faq-filter text-xs px-3.5 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-cat="regras">Regras & Combate</button>
+      <button class="faq-filter text-xs px-3.5 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-cat="policia">Polícia & Leis</button>
+      <button class="faq-filter text-xs px-3.5 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-cat="ilegal">Ilegal & Ações</button>
+      <button class="faq-filter text-xs px-3.5 py-1.5 rounded-lg border border-vanguard-border bg-vanguard-dark text-slate-300 hover:border-vanguard-accent/50 transition-all" data-cat="doacoes">Doações & VIP</button>
+    </div>
+  </section>
+
+  <!-- ACCORDION DE PERGUNTAS & RESPOSTAS -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="space-y-3.5" id="faqContainer">
+
+      <!-- ITEM 1 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="inicio">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="wifi" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            Como faço para conectar na Cidade Vanguard pela primeira vez?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          Abra seu FiveM, pressione a tecla <code>F8</code> no teclado e digite <code>connect SEU_IP_AQUI</code> (ou clique no botão "JOGAR" no nosso site). Certifique-se de estar com o Discord aberto em segundo plano e com o microfone em modo Push-to-Talk (apertar para falar) configurado.
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="regras">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="plug-zap" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            Meu jogo crashou no meio de uma ação ou perseguição. O que devo fazer?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          Avise imediatamente no canal <code>#crash-report</code> no nosso Discord oficial. Caso você estivesse <strong>algemado ou sob custódia policial</strong>, é obrigatório reconectar assim que o jogo abrir para cumprir a cena. Caso estivesse em tiroteio de ação armada, <strong>você não pode retornar para a mesma ação</strong>. Desconectar de propósito acarreta perda de todos os bens do personagem por Combat-Log.
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="regras">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="shield-check" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            Como funcionam as Safezones e onde elas ficam?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          As Safezones são 100% blindadas e protegidas por script: o próprio jogo desarma o personagem dentro delas. Ficam no <strong>Hospital, Praça Principal, Delegacias, Mecânicas, Concessionária, Garagens Públicas e Lojas de Roupas</strong>. É proibido qualquer tipo de assalto, furto, agressão ou usar a Safezone para fugir de perseguição policial.
+        </div>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="regras">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="skull" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            O que é Permadeath (PD) e quando ele acontece?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          Permadeath é a morte definitiva do seu personagem. Ele é aplicado pela administração quando o jogador <strong>quebra totalmente a regra de Amor à Vida</strong> (ex: debochar de sequestradores armados, atirar sozinho contra 5 viaturas ou pular de prédios sem sentido narrativo). Se tomar PD, você perde o personagem definitivamente e não pode recriá-lo com mesmo vínculo familiar.
+        </div>
+      </div>
+
+      <!-- ITEM 5 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="policia">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="scale" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            Como funcionam as fianças e o tempo de prisão no Código Penal?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          As penas na Cidade Vanguard são medidas em <strong>Serviços Comunitários</strong> (de 5 a 120 serviços) para garantir dinamismo e bom roleplay carcerário. Crimes graves como Latrocínio, Tráfico Qualificado e Terrorismo são inafiançáveis. Crimes menores permitem pagamento de fiança diretamente na delegacia para liberação imediata.
+        </div>
+      </div>
+
+      <!-- ITEM 6 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="ilegal">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="clock" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            Qual é o horário permitido para assaltos na cidade?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          Na <strong>Região Sul</strong>, assaltos a moradores são estritamente proibidos em qualquer horário. Na <strong>Região Norte</strong>, assaltos a cidadãos ocorrem das <strong>00:00 às 06:00</strong>. Ações armadas de rua entre facções no Norte são liberadas 24 horas.
+        </div>
+      </div>
+
+      <!-- ITEM 7 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="regras">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="video" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            Como abrir uma denúncia contra outro jogador corretamente?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          A denúncia é feita in-game através do comando <code>/denunciar</code> ou no canal restrito do Discord. É <strong>obrigatório apresentar clipe contínuo de no mínimo 2 minutos</strong> com áudio limpo e a HUD visível. Palavra contra palavra ou denúncias em salas de voz não são aceitas.
+        </div>
+      </div>
+
+      <!-- ITEM 8 -->
+      <div class="faq-item bg-vanguard-dark/90 border border-vanguard-border rounded-xl overflow-hidden transition-all shadow-lg" data-cat="doacoes">
+        <button class="faq-btn w-full p-4 sm:p-5 text-left flex justify-between items-center gap-4 hover:bg-vanguard-card/40 transition-colors">
+          <span class="font-title font-semibold text-xs sm:text-sm text-white flex items-center gap-2.5">
+            <i data-lucide="coins" class="w-4 h-4 text-vanguard-accent shrink-0"></i>
+            Como funcionam as doações e pacotes VIP?
+          </span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-vanguard-accent shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-vanguard-border/30">
+          O jogo é 100% gratuito. Doações são contribuições voluntárias destinadas aos custos de servidor e hospedagem. Apoiadores VIP recebem benefícios cosméticos e comodidades estipuladas em cada pacote, porém <strong>não possuem qualquer tipo de imunidade disciplinar</strong> perante a lei ou as regras do servidor.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NENHUM RESULTADO -->
+    <div id="noFaqResults" class="hidden p-8 text-center text-vanguard-muted text-sm">
+      Nenhuma dúvida encontrada para a sua pesquisa. Caso precise de ajuda personalizada, abra um ticket no nosso Discord!
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="mt-16 border-t border-vanguard-border/50 bg-vanguard-darkest/95 py-10 text-center text-xs text-vanguard-muted">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-title font-bold text-white tracking-wider">CIDADE VANGUARD • SUPORTE & TRANSPARÊNCIA</p>
+      <p>Dúvidas não sanadas? Procure nossa equipe através do Discord Oficial.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT INTERATIVO (ACCORDION + BUSCA + FILTROS) -->
+  <script>
+    lucide.createIcons();
+
+    // 1. EFEITO SANFONA (ACCORDION)
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-btn');
+      const content = item.querySelector('.faq-content');
+      const icon = item.querySelector('.faq-icon');
+
+      btn.addEventListener('click', () => {
+        const isOpen = !content.classList.contains('hidden');
+
+        // Fecha todos os outros para manter a tela limpa
+        faqItems.forEach(other => {
+          other.querySelector('.faq-content').classList.add('hidden');
+          other.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+          other.classList.remove('border-vanguard-accent/60', 'bg-vanguard-card/30');
+        });
+
+        // Alterna o atual
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+          item.classList.add('border-vanguard-accent/60', 'bg-vanguard-card/30');
+        }
+      });
+    });
+
+    // 2. BUSCA EM TEMPO REAL & FILTROS
+    const searchInput = document.getElementById('searchFaq');
+    const filterButtons = document.querySelectorAll('.faq-filter');
+    const noResults = document.getElementById('noFaqResults');
+
+    let currentCategory = 'all';
+    let currentQuery = '';
+
+    function filterFaq() {
+      let visibleCount = 0;
+
+      faqItems.forEach(item => {
+        const itemCat = item.getAttribute('data-cat');
+        const text = item.textContent.toLowerCase();
+        
+        const matchesCategory = (currentCategory === 'all') || (itemCat === currentCategory);
+        const matchesQuery = text.includes(currentQuery);
+
+        if (matchesCategory && matchesQuery) {
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      currentQuery = e.target.value.toLowerCase().trim();
+      filterFaq();
+    });
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'border-vanguard-accent', 'bg-vanguard-accent/10', 'text-vanguard-accent', 'font-semibold');
+          b.classList.add('border-vanguard-border', 'bg-vanguard-dark', 'text-slate-300');
+        });
+
+        btn.classList.add('active', 'border-vanguard-accent', 'bg-vanguard-accent/10', 'text-vanguard-accent', 'font-semibold');
+        btn.classList.remove('border-vanguard-border', 'bg-vanguard-dark', 'text-slate-300');
+
+        currentCategory = btn.getAttribute('data-cat');
+        filterFaq();
+      });
+    });
+  </script>
+
+</body>
+</html>

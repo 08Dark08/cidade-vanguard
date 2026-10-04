@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade Vanguard — Departamentos & Editais Oficiais 2026</title>
+  
+  <!-- Fontes Oficiais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vanguard: {
+              darkest: '#030712',
+              dark: '#081325',
+              card: '#0c1d36',
+              border: '#1b3558',
+              primary: '#2563eb',
+              accent: '#38bdf8',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            title: ['Orbitron', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb { background: #1b3558; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+    .bg-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12) 0%, rgba(3, 7, 18, 0) 70%);
+    }
+  </style>
+</head>
+
+<body class="bg-vanguard-darkest text-slate-200 font-sans min-h-screen bg-glow antialiased selection:bg-vanguard-accent selection:text-vanguard-darkest">
+
+  <!-- NAVBAR PADRONIZADA COM LOGO E SVG DISCORD DA CIDADE -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-vanguard-darkest/90 border-b border-vanguard-border/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-vanguard-primary to-vanguard-accent rounded-xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+            <div class="relative w-11 h-11 rounded-xl bg-vanguard-card border border-vanguard-accent/40 flex items-center justify-center overflow-hidden shadow-lg">
+              <img src="logo.png" alt="Cidade Vanguard" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div>
+            <span class="font-title font-bold text-lg text-white tracking-wider">CIDADE VANGUARD</span>
+            <span class="text-[11px] text-vanguard-accent block -mt-1 font-medium tracking-widest uppercase">Quadro de Corporações • 2026</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="home" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Início</span>
+        </a>
+
+        <a href="regras.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="book-open" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Regras</span>
+        </a>
+
+        <a href="penal.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="scale" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Código Penal</span>
+        </a>
+
+        <a href="faq.html" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white hover:bg-vanguard-card transition-all px-3 py-2 rounded-lg border border-vanguard-border/50">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-vanguard-accent"></i>
+          <span>Dúvidas</span>
+        </a>
+
+        <!-- DISCORD PRINCIPAL DA CIDADE -->
+        <a href="https://discord.gg/FyrDyFcNqF" target="_blank" class="flex items-center gap-2 text-xs font-semibold bg-[#5865F2] hover:bg-[#4752c4] text-white px-3.5 py-2 rounded-lg shadow-md shadow-[#5865F2]/25 transition-all">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 127.14 96.36">
+            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,45.91,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,45.91,96.12,53,91.08,65.69,84.69,65.69Z"/>
+          </svg>
+          <span class="hidden sm:inline">Discord</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative pt-12 pb-6 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-vanguard-accent/30 bg-vanguard-card/60 text-vanguard-accent text-xs font-mono mb-4 uppercase tracking-widest">
+      <i data-lucide="shield" class="w-3.5 h-3.5"></i> Departamentos Oficiais do Município
+    </div>
+    
+    <h1 class="text-3xl sm:text-5xl font-title font-black text-white tracking-tight mb-4 uppercase">
+      DEPARTAMENTOS & <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-vanguard-accent via-blue-400 to-vanguard-primary">EDITAIS DE CARREIRA</span>
+    </h1>
+    
+    <p class="text-vanguard-muted text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mb-4">
+      Conheça as forças de segurança, as unidades hospitalares distritais e as oficinas mecânicas autorizadas da Cidade Vanguard.
+    </p>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-14">
+
+    <!-- SEÇÃO 1: SEGURANÇA PÚBLICA & FORÇAS POLICIAIS -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-3">
+        <div class="p-2 rounded-lg bg-blue-500/10 text-vanguard-accent">
+          <i data-lucide="shield" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="font-title font-bold text-lg text-white uppercase tracking-wider">Forças de Segurança Pública</h2>
+          <span class="text-xs text-vanguard-muted">PMV • DIP • COT • SPD • PPD</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- 1. PMV -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-vanguard-accent/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-vanguard-accent bg-vanguard-accent/10 px-2 py-0.5 rounded border border-vanguard-accent/30">PMV</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EDITAL ABERTO</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">Polícia Militar de Vanguard</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Patrulhamento ostensivo preventivo, preservação da ordem pública e atendimento imediato a chamados em toda a malha urbana da capital.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Ronda preventiva & Código 3</p>
+              <p>• Resposta a roubos e conflitos de rua</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/mnqdfptq88" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+        <!-- 2. DIP -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-vanguard-accent/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/30">DIP</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">SELEÇÃO INTERNA</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">Depto. Investigações Policiais</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Polícia investigativa e inteligência. Elaboração de dossiês contra facções, infiltrações táticas e execução de mandados judiciais de Pacificação.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Dossiês de organizações criminosas</p>
+              <p>• Operações de mandado de busca (PC)</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/mnqdfptq88" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+        <!-- 3. COT -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-vanguard-accent/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/30">COT</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-500/20 text-slate-400 border border-slate-500/30">CONVOCAÇÃO</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">Comando Operações Táticas</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Tropa de elite especializada em gerenciamento de crises com reféns, assaltos ao Banco Central, resgates em áreas de alto risco e Incursões da PM.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Incursões táticas de alta complexidade</p>
+              <p>• Atiradores de precisão & Armamento pesado</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/mnqdfptq88" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+        <!-- 4. SPD -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-vanguard-accent/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/30">SPD</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EDITAL ABERTO</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">South Police Department</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Divisão distrital responsável pela segurança metropolitana da Região Sul, orla da praia, distritos financeiros e monitoramento das Safezones centrais.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Proteção ao setor empresarial e bancos</p>
+              <p>• Policiamento comunitário no Sul</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/mnqdfptq88" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+        <!-- 5. PPD -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-vanguard-accent/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/30">PPD</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EDITAL ABERTO</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">Paleto Police Department</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Guarnição responsável pela jurisdição da Região Norte, rodovias interestaduais, florestas, litoral de Paleto Bay e patrulhamento do Banco Paleto.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Patrulha em rodovias rurais e costeiras</p>
+              <p>• Fiscalização territorial do Norte</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/mnqdfptq88" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: SAÚDE PÚBLICA & CENTROS MÉDICOS -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-3">
+        <div class="p-2 rounded-lg bg-rose-500/10 text-rose-400">
+          <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="font-title font-bold text-lg text-white uppercase tracking-wider">Centros Médicos & Hospitais</h2>
+          <span class="text-xs text-vanguard-muted">CM VANGUARD • CM SANDY • CM PALETO</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <!-- CM VANGUARD -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-rose-500/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/30">SUL</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EDITAL ABERTO</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">CM Vanguard (Principal)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              O complexo hospitalar central da capital. Referência em cirurgias plásticas, atendimento emergencial a feridos civis e atendimento prioritário da metrópole.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Cirurgias estéticas e plásticas</p>
+              <p>• UTI móvel e heliponto central</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/XKXDjaYaug" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+        <!-- CM SANDY -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-rose-500/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">CENTRAL</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EDITAL ABERTO</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">CM Sandy Shores</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Posto avançado de trauma e resgate rápido para o interior e rotas industriais do deserto de Grand Senora.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Resgate aeromédico do deserto</p>
+              <p>• Suporte a trabalhadores de farm</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/XKXDjaYaug" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+        <!-- CM PALETO -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-rose-500/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/30">NORTE</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EDITAL ABERTO</span>
+            </div>
+            <h3 class="font-title font-bold text-base text-white">CM Paleto Bay</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Unidade hospitalar que atende as ocorrências do extremo norte, áreas florestais e prontidão para suporte costeiro.
+            </p>
+            <div class="text-[11px] text-vanguard-muted space-y-1 pt-1 border-t border-vanguard-border/40">
+              <p>• Atendimento costeiro e marítimo</p>
+              <p>• Socorro a ocorrências de rodovia</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/XKXDjaYaug" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: MECÂNICAS AUTORIZADAS -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-vanguard-border/70 pb-3">
+        <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400">
+          <i data-lucide="wrench" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="font-title font-bold text-lg text-white uppercase tracking-wider">Mecânicas Credenciadas</h2>
+          <span class="text-xs text-vanguard-muted">BENNY'S ORIGINAL MOTORWORKS • STOPCAR GARAGE</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- BENNY'S -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">CUSTOM & TUNING</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">CONTRATANDO</span>
+            </div>
+            <h3 class="font-title font-bold text-lg text-white">Benny's Original Motorworks</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Especializada em personalizações estéticas de alto luxo, pinturas customizadas, envelopamento, rebaixamento hidráulico e preparação de motores esportivos.
+            </p>
+            <div class="p-3 bg-vanguard-card/60 rounded-xl border border-vanguard-border/40 text-xs text-slate-300 space-y-1">
+              <p>• Obrigatório uso de fardamento em serviço</p>
+              <p>• Rigorosa observância à tabela de preços</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/xNjj5pNWck" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+        <!-- STOPCAR -->
+        <div class="bg-vanguard-dark/95 border border-vanguard-border rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-xs font-bold text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/30">REPARO & PERFORMANCE</span>
+              <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">CONTRATANDO</span>
+            </div>
+            <h3 class="font-title font-bold text-lg text-white">StopCar Garage</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Referência em assistência mecânica rápida de rua, serviços de guincho 24h, troca de kits de blindagem civil e manutenção de frotas comerciais do município.
+            </p>
+            <div class="p-3 bg-vanguard-card/60 rounded-xl border border-vanguard-border/40 text-xs text-slate-300 space-y-1">
+              <p>• Frotas de guincho para atendimento em pista</p>
+              <p>• Revisão preventiva e mecânica geral</p>
+            </div>
+          </div>
+          <a href="https://discord.gg/xNjj5pNWck" target="_blank" class="mt-5 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-vanguard-primary hover:bg-blue-600 text-white font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-vanguard-primary/20">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Acessar Edital</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="mt-16 border-t border-vanguard-border/50 bg-vanguard-darkest/95 py-10 text-center text-xs text-vanguard-muted">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-title font-bold text-white tracking-wider">CIDADE VANGUARD • ADMINISTRAÇÃO PÚBLICA</p>
+      <p>Todos os editais são auditados e supervisionados pela Administração Geral da Vanguard.</p>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
